@@ -1,2 +1,10 @@
 ---
 # vars file for owncloud
+
+owncloud_baseurl: "http://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}/"
+owncloud_gpgkey: "https://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}/repodata/repomd.xml.key"
+
+owncloud_repo: "deb http://download.owncloud.org/download/repositories/production/Debian_9.0/ /"
+
+owncloud_packages:
+  - owncloud-files
