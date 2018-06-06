@@ -1,5 +1,12 @@
 ---
 # tasks file for owncloud
+- name: install requirements
+  package:
+    name: "{{ item }}"
+  with_items:
+    - "{{ owncloud_requirements[ansible_distribution]
+      | default(owncloud_requirements['default'] ) }}"
+
 - name: add yum repository
   yum_repository:
     name: owncloud

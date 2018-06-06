@@ -8,3 +8,21 @@ owncloud_repo: "deb http://download.owncloud.org/download/repositories/productio
 
 owncloud_packages:
   - owncloud-files
+
+owncloud_requirements:
+  CentOS:
+    - php-php-gd
+    - php-php-mbstring
+    - php-php-mysqlnd
+    - php-pecl-apcu
+    - redis
+    - php-pecl-redis
+    - php-php-ldap
+  Fedora:
+    - php-php-gd
+    - php-php-mbstring
+    - php-php-mysqlnd
+    - php-pecl-apcu
+    - redis
+    - php-pecl-redis
+    - php-php-ldap
