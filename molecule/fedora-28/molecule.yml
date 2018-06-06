@@ -8,7 +8,7 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: ara-fedora-28
+  - name: owncloud-fedora-28
     image: fedora:28
 provisioner:
   name: ansible

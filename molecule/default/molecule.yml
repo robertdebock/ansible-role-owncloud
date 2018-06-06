@@ -8,37 +8,37 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: ara-archlinux
+  - name: owncloud-archlinux
     image: base/archlinux
-  - name: ara-alpine-3.6
+  - name: owncloud-alpine-3.6
     image: alpine:3.6
-  - name: ara-alpine-3.7
+  - name: owncloud-alpine-3.7
     image: alpine:3.7
-  - name: ara-centos-6
+  - name: owncloud-centos-6
     image: centos:6
-  - name: ara-centos-7
+  - name: owncloud-centos-7
     image: centos:7
-  - name: ara-debian-buster
+  - name: owncloud-debian-buster
     image: debian:buster
-  - name: ara-debian-jessie
+  - name: owncloud-debian-jessie
     image: debian:jessie
-  - name: ara-debian-sid
+  - name: owncloud-debian-sid
     image: debian:sid
-  - name: ara-debian-stretch
+  - name: owncloud-debian-stretch
     image: debian:stretch
-  - name: ara-debian-wheezy
+  - name: owncloud-debian-wheezy
     image: debian:wheezy
-  - name: ara-fedora-27
+  - name: owncloud-fedora-27
     image: fedora:27
-  - name: ara-fedora-28
+  - name: owncloud-fedora-28
     image: fedora:28
-  - name: ara-opensuse-42.2
+  - name: owncloud-opensuse-42.2
     image: opensuse:42.2
-  - name: ara-opensuse-42.3
+  - name: owncloud-opensuse-42.3
     image: opensuse:42.3
-  - name: ara-ubuntu-artful
+  - name: owncloud-ubuntu-artful
     image: ubuntu:artful
-  - name: ara-ubuntu-bionic
+  - name: owncloud-ubuntu-bionic
     image: ubuntu:bionic
 provisioner:
   name: ansible

@@ -8,7 +8,7 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: ara-centos-7
+  - name: owncloud-centos-7
     image: centos:7
 provisioner:
   name: ansible
