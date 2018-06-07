@@ -18,3 +18,10 @@ owncloud_requirements:
     - redis
     - php-pecl-redis
     - php-ldap
+  openSUSE Leap:
+    - php7-gd
+    - php7-mbstring
+    - php7-mysqlnd
+    - redis
+    - php7-pecl-redis
+    - php7-ldap
