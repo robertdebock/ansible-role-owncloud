@@ -14,7 +14,7 @@ owncloud_requirements:
     - php-gd
     - php-mbstring
     - php-mysqlnd
-    - pecl-apcu
+    - php-pecl-apcu
     - redis
     - php-pecl-redis
     - php-ldap
