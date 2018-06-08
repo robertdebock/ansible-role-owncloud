@@ -40,6 +40,6 @@
 - name: place owncloud.conf
   template:
     src: owncloud.conf.j2
-    dest: "{{ owncloud_configuration[ansible_distribution]['config_directory'] }}/owncloud.conf
+    dest: "{{ owncloud_configuration[ansible_distribution]['config_directory'] }}/owncloud.conf"
   notify:
     - restart httpd
