@@ -10,6 +10,14 @@ owncloud_packages:
   - owncloud-files
 
 owncloud_requirements:
+  Alpine:
+    - php7-gd
+    - php7-mbstring
+    - php7-mysqlnd
+    - apcu
+    - redis
+    - pecl
+    - php7-ldap
   default:
     - php-gd
     - php-mbstring
