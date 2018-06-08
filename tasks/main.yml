@@ -4,8 +4,7 @@
   package:
     name: "{{ item }}"
   with_items:
-    - "{{ owncloud_configuration[ansible_distribution]['requirements']
-      | default(owncloud_configuration['default']['requirements'] ) }}"
+    - "{{ owncloud_configuration[ansible_distribution]['requirements'] }}"
 
 - name: add yum repository
   yum_repository:

@@ -12,16 +12,16 @@ owncloud_packages:
 owncloud_requirements:
 
 owncloud_configuration:
-  Alpine:
-    config_directory: /etc/apache2/conf.d
+  CentOS:
+    config_directory: /etc/httpd/conf.d
     requirements:
-      - php7-gd
-      - php7-mbstring
-      - php7-mysqlnd
-      - apcu
+      - php-gd
+      - php-mbstring
+      - php-mysqlnd
+      - php-pecl-apcu
       - redis
-      - pecl
-      - php7-ldap
+      - php-pecl-redis
+      - php-ldap
   Debian:
     config_directory: /etc/apache2/conf-enabled
     requirements:
@@ -31,7 +31,7 @@ owncloud_configuration:
       - php-apcu
       - redis-server
       - php-ldap
-  default:
+  Fedora:
     config_directory: /etc/httpd/conf.d
     requirements:
       - php-gd
