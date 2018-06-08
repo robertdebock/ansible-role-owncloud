@@ -10,40 +10,52 @@ owncloud_packages:
   - owncloud-files
 
 owncloud_requirements:
+
+owncloud_configuration:
   Alpine:
-    - php7-gd
-    - php7-mbstring
-    - php7-mysqlnd
-    - apcu
-    - redis
-    - pecl
-    - php7-ldap
-  default:
-    - php-gd
-    - php-mbstring
-    - php-mysqlnd
-    - php-pecl-apcu
-    - redis
-    - php-pecl-redis
-    - php-ldap
+    config_directory: /etc/apache2/conf.d
+    requirements:
+      - php7-gd
+      - php7-mbstring
+      - php7-mysqlnd
+      - apcu
+      - redis
+      - pecl
+      - php7-ldap
   Debian:
-    - php-gd
-    - php-mbstring
-    - php-mysqlnd
-    - php-apcu
-    - redis-server
-    - php-ldap
+    config_directory: /etc/apache2/conf-enabled
+    requirements:
+      - php-gd
+      - php-mbstring
+      - php-mysqlnd
+      - php-apcu
+      - redis-server
+      - php-ldap
+  default:
+    config_directory: /etc/httpd/conf.d
+    requirements:
+      - php-gd
+      - php-mbstring
+      - php-mysqlnd
+      - php-pecl-apcu
+      - redis
+      - php-pecl-redis
+      - php-ldap
   openSUSE Leap:
-    - php7-gd
-    - php7-mbstring
-    - php7-mysqlnd
-    - redis
-    - php7-pecl-redis
-    - php7-ldap
+    config_directory: /etc/apache2/conf.d
+    requirements:
+      - php7-gd
+      - php7-mbstring
+      - php7-mysqlnd
+      - redis
+      - php7-pecl-redis
+      - php7-ldap
   Ubuntu:
-    - php-gd
-    - php-mbstring
-    - php-mysqlnd
-    - php-apcu
-    - redis-server
-    - php-ldap
+    config_directory: /etc/apache2/conf-enabled
+    requirements:
+      - php-gd
+      - php-mbstring
+      - php-mysqlnd
+      - php-apcu
+      - redis-server
+      - php-ldap

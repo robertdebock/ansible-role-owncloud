@@ -4,8 +4,8 @@
   package:
     name: "{{ item }}"
   with_items:
-    - "{{ owncloud_requirements[ansible_distribution]
-      | default(owncloud_requirements['default'] ) }}"
+    - "{{ owncloud_configuration[ansible_distribution]['requirements']
+      | default(owncloud_configuration['default']['requirements'] ) }}"
 
 - name: add yum repository
   yum_repository:
@@ -36,3 +36,10 @@
     name: "{{ item }}"
   with_items:
     - "{{ owncloud_packages }}"
+
+- name: place owncloud.conf
+  template:
+    src: owncloud.conf.j2
+    dest: "{{ owncloud_configuration[ansible_distribution]['config_directory'] }}/owncloud.conf
+  notify:
+    - restart httpd
