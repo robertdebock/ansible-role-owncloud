@@ -44,12 +44,12 @@ owncloud_configuration:
   openSUSE Leap:
     config_directory: /etc/apache2/conf.d
     requirements:
-      - php7-gd
-      - php7-mbstring
-      - php7-mysqlnd
+      - php5-gd
+      - php5-mbstring
+      - php5-mysqlnd
       - redis
-      - php7-pecl-redis
-      - php7-ldap
+      - php5-pecl-redis
+      - php5-ldap
   Ubuntu:
     config_directory: /etc/apache2/conf-enabled
     requirements:
