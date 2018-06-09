@@ -2,7 +2,6 @@
 # vars file for owncloud
 
 owncloud_baseurl: "http://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}/"
-owncloud_gpgkey: "https://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}/repodata/repomd.xml.key"
 
 owncloud_repo: "deb http://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}.0/ /"
 
@@ -13,6 +12,7 @@ owncloud_requirements:
 
 owncloud_configuration:
   CentOS:
+    owncloud_gpgkey: "https://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}/repodata/repomd.xml.key"
     config_directory: /etc/httpd/conf.d
     requirements:
       - php-gd
@@ -32,6 +32,7 @@ owncloud_configuration:
       - redis-server
       - php-ldap
   Fedora:
+    owncloud_gpgkey: "https://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}/repodata/repomd.xml.key"
     config_directory: /etc/httpd/conf.d
     requirements:
       - php-gd
@@ -42,6 +43,7 @@ owncloud_configuration:
       - php-pecl-redis
       - php-ldap
   openSUSE Leap:
+    owncloud_gpgkey: "https://download.owncloud.org/download/repositories/production/openSUSE_Tumbleweed/repodata/repomd.xml.key"
     config_directory: /etc/apache2/conf.d
     requirements:
       - php5-gd

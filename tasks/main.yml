@@ -11,7 +11,7 @@
     name: owncloud
     description: OwnCloud YUM repository
     baseurl: "{{ owncloud_baseurl }}"
-    gpgkey: "{{ owncloud_gpgkey }}"
+    gpgkey: "{{ owncloud_configuration[ansible_distribution]['owncloud_gpgkey'] }}"
     gpgcheck: yes
   when:
     - ansible_pkg_mgr == "yum" or ansible_pkg_mgr == "dnf"
