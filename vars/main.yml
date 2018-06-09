@@ -1,4 +1,5 @@
 ---
+    key: https://download.owncloud.org/download/repositories/production/Debian_9.0/Release.key
 # vars file for owncloud
 
 owncloud_baseurl: "http://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}/"
@@ -11,7 +12,7 @@ owncloud_requirements:
 
 owncloud_configuration:
   CentOS:
-    owncloud_gpgkey: "https://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}/repodata/repomd.xml.key"
+    key: "https://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}/repodata/repomd.xml.key"
     config_directory: /etc/httpd/conf.d
     requirements:
       - php-gd
@@ -22,6 +23,7 @@ owncloud_configuration:
       - php-pecl-redis
       - php-ldap
   Debian:
+    key: https://download.owncloud.org/download/repositories/production/Debian_9.0/Release.key
     config_directory: /etc/apache2/conf-enabled
     owncloud_repo: "deb http://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}.0/ /"
     requirements:
@@ -32,7 +34,7 @@ owncloud_configuration:
       - redis-server
       - php-ldap
   Fedora:
-    owncloud_gpgkey: "https://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}/repodata/repomd.xml.key"
+    key: "https://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}/repodata/repomd.xml.key"
     config_directory: /etc/httpd/conf.d
     requirements:
       - php-gd
@@ -43,7 +45,7 @@ owncloud_configuration:
       - php-pecl-redis
       - php-ldap
   openSUSE Leap:
-    owncloud_gpgkey: "https://download.owncloud.org/download/repositories/production/openSUSE_Tumbleweed/repodata/repomd.xml.key"
+    key: "https://download.owncloud.org/download/repositories/production/openSUSE_Tumbleweed/repodata/repomd.xml.key"
     owncloud_repo: "http://download.owncloud.org/download/repositories/production/openSUSE_Leap_42.3/ce:stable.repo"
     config_directory: /etc/apache2/conf.d
     requirements:
@@ -52,6 +54,7 @@ owncloud_configuration:
       - redis
       - php5-ldap
   Ubuntu:
+    key: https://download.owncloud.org/download/repositories/production/Debian_9.0/Release.key
     config_directory: /etc/apache2/conf-enabled
     owncloud_repo: "deb http://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}.0/ /"
     requirements:
