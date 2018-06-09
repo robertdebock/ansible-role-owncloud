@@ -46,9 +46,7 @@ owncloud_configuration:
     requirements:
       - php5-gd
       - php5-mbstring
-      - php5-mysqlnd
       - redis
-      - php5-pecl-redis
       - php5-ldap
   Ubuntu:
     config_directory: /etc/apache2/conf-enabled
