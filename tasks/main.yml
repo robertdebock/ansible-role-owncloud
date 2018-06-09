@@ -19,7 +19,7 @@
 - name: add zypper repository
   zypper_repository:
     description: OwnCloud repository
-    repo: "{{ owncloud_configuration[ansible_distribution]['owncloud_repo'] }}"
+    repo: "{{ owncloud_configuration[ansible_distribution]['repo'] }}"
   when:
     ansible_pkg_mgr == "zypper"
 
@@ -37,7 +37,7 @@
 
 - name: add apt repository
   apt_repository:
-    repo: "{{ owncloud_configuration[ansible_distribution]['owncloud_repo'] }}"
+    repo: "{{ owncloud_configuration[ansible_distribution]['repo'] }}"
   when:
     - ansible_pkg_mgr == "apt"
   notify:
