@@ -9,7 +9,7 @@
 - name: add yum repository
   yum_repository:
     name: owncloud
-    description: OwnCloud YUM repository
+    description: OwnCloud repository
     baseurl: "{{ owncloud_baseurl }}"
     gpgkey: "{{ owncloud_configuration[ansible_distribution]['owncloud_gpgkey'] }}"
     gpgcheck: yes
@@ -18,8 +18,7 @@
 
 - name: add zypper repository
   zypper_repository:
-    name: owncloud
-    description: OwnCloud YUM repository
+    description: OwnCloud repository
     repo: "{{ owncloud_configuration[ansible_distribution]['owncloud_repo'] }}"
     auto_import_keys: yes
   when:
