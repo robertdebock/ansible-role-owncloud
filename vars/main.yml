@@ -3,7 +3,6 @@
 
 owncloud_baseurl: "http://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}/"
 
-owncloud_repo: "deb http://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}.0/ /"
 
 owncloud_packages:
   - owncloud-files
@@ -24,6 +23,7 @@ owncloud_configuration:
       - php-ldap
   Debian:
     config_directory: /etc/apache2/conf-enabled
+    owncloud_repo: "deb http://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}.0/ /"
     requirements:
       - php-gd
       - php-mbstring
@@ -44,6 +44,7 @@ owncloud_configuration:
       - php-ldap
   openSUSE Leap:
     owncloud_gpgkey: "https://download.owncloud.org/download/repositories/production/openSUSE_Tumbleweed/repodata/repomd.xml.key"
+    owncloud_repo: "http://download.owncloud.org/download/repositories/production/openSUSE_Leap_42.3/ce:stable.repo"
     config_directory: /etc/apache2/conf.d
     requirements:
       - php5-gd
@@ -52,6 +53,7 @@ owncloud_configuration:
       - php5-ldap
   Ubuntu:
     config_directory: /etc/apache2/conf-enabled
+    owncloud_repo: "deb http://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}.0/ /"
     requirements:
       - php-gd
       - php-mbstring
