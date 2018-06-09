@@ -1,7 +1,5 @@
 ---
-    key: https://download.owncloud.org/download/repositories/production/Debian_9.0/Release.key
 # vars file for owncloud
-
 owncloud_baseurl: "http://download.owncloud.org/download/repositories/production/{{ ansible_distribution }}_{{ ansible_distribution_major_version }}/"
 
 
