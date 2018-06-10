@@ -1,16 +1,16 @@
-ara
+owncloud
 =========
 
-[![Build Status](https://travis-ci.org/robertdebock/ansible-role-ara.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-ara)
+[![Build Status](https://travis-ci.org/robertdebock/ansible-role-owncloud.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-owncloud)
 
-Provides ara (Ansible Runtime Analysis) for your system.
+Provides owncloud for your system.
 
 Context
 -------
 This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://robertdebock.nl/) for further information.
 
 Here is an overview of related roles:
-![dependencies](https://raw.githubusercontent.com/robertdebock/robertdebock.github.io/artifacts/ara.png "Dependency")
+![dependencies](https://raw.githubusercontent.com/robertdebock/robertdebock.github.io/artifacts/owncloud.png "Dependency")
 
 Requirements
 ------------
@@ -20,39 +20,7 @@ Access to a repository containing packages, likely on the internet.
 Role Variables
 --------------
 
-To tell Ansible to use ara, these variables can be modified:
-- ara_configuration_file can be set and defaults to /etc/ansible/ansible.cfg.
-- ara_callback_plugins should point to where ara is installed.
-
-All other (ara) options can be defined by overwriting ara_configuration:
-- ara_configuration:
-  - option: port
-    value: 9191
-
-You can configure ara using this structure:
-```
-ara_configuration:
-  - option: port
-    value: 9191
-```
-
-These are the settings you can use.
-
-- dir
-- database
-- host
-- port
-- logconfig
-- logfile
-- loglevel
-- logformat
-- sqldebug
-- ignore_parameters
-- ignore_empty_generation
-- ignore_mimetype_warnings
-- playbook_override
-- playbook_per_page
-- result_per_page
+None known.
 
 Dependencies
 ------------
@@ -64,6 +32,9 @@ This role can be used to prepare your system:
 - [robertdebock.epel](https://travis-ci.org/robertdebock/ansible-role-epel)
 - [robertdebock.scl](https://travis-ci.org/robertdebock/ansible-role-scl)
 - [robertdebock.python-pip](https://travis-ci.org/robertdebock/ansible-role-python-pip)
+- [robertdebock.httpd](https://travis-ci.org/robertdebock/ansible-role-httpd)
+- [robertdebock.php](https://travis-ci.org/robertdebock/ansible-role-php)
+
 
 Download the dependencies by issuing this command:
 ```
@@ -106,12 +77,14 @@ The simplest way possible:
     - robertdebock.buildtools
     - robertdebock.scl
     - robertdebock.python-pip
-    - robertdebock.ara
+    - robertdebock.php
+    - robertdebock.httpd
+    - robertdebock.owncloud
 ```
 
 You can also call this role without having `become: true`, because the tasks that require elevated privileges have `become: true` added.
 
-Install this role using `galaxy install robertdebock.ara`.
+Install this role using `galaxy install robertdebock.owncloud`.
 
 License
 -------
