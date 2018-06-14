@@ -20,6 +20,7 @@ owncloud_configuration:
       - php-pecl-redis
       - php-ldap
       - php-process
+      - php-xml
   Debian:
     config_directory: /etc/apache2/conf-enabled
     destination: /var/www/html
@@ -43,6 +44,7 @@ owncloud_configuration:
       - php-pecl-redis
       - php-ldap
       - php-process
+      - php-xml
   openSUSE Leap:
     destination: /var/www/html
     config_directory: /etc/apache2/conf.d
