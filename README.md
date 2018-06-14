@@ -70,16 +70,54 @@ The simplest way possible:
 ```
 - hosts: servers
   become: true
+  gather_facts: no
 
-  roles:
-    - robertdebock.bootstrap
-    - robertdebock.epel
-    - robertdebock.buildtools
-    - robertdebock.scl
-    - robertdebock.python-pip
-    - robertdebock.php
-    - robertdebock.httpd
-    - robertdebock.owncloud
+  tasks:
+    - name: include bootstrap role
+      include_role:
+        name: robertdebock.bootstrap
+
+    - name: include mysql role
+      include_role:
+        name: robertdebock.mysql
+
+    - name: create mysql database
+      mysql_db:
+        name: owncloud
+
+    - name: create mysql user
+      mysql_user:
+        name: owncloud
+        password: OwnCl0uD
+        priv: "*.*:ALL"
+
+    - name: include epel role
+      include_role:
+        name: robertdebock.epel
+
+    - name: include buildtools role
+      include_role:
+        name: robertdebock.buildtools
+
+    - name: include scl role
+      include_role:
+        name: robertdebock.scl
+
+    - name: include python-pip role
+      include_role:
+        name: robertdebock.python-pip
+
+    - name: include php role
+      include_role:
+        name: robertdebock.php
+
+    - name: include role httpd
+      include_role:
+        name: robertdebock.httpd
+
+    - name: include owncloud role
+      include_role:
+        name: robertdebock.owncloud
 ```
 
 You can also call this role without having `become: true`, because the tasks that require elevated privileges have `become: true` added.
