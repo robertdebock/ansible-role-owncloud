@@ -1,6 +1,6 @@
 ---
 # vars file for owncloud
-owncloud_archive: "https://download.owncloud.org/community/owncloud-{{ owncloud_version }}.tar.gz"
+owncloud_archive: "https://download.owncloud.org/community/owncloud-{{ owncloud_version }}.tar.bz2"
 
 owncloud_packages:
   - owncloud-files
