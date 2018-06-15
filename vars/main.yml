@@ -21,6 +21,19 @@ owncloud_configuration:
       - php7-posix
       - php7-xml
       - redis
+  Archlinux:
+    config_directory: /etc/httpd/conf/extra
+    destination: /srv/httpd
+    requirements:
+      - php-apcu
+      - php-gd
+      - php-json
+      - php-ldap
+      - php-mbstring
+      - php-mysqlnd
+      - php-posix
+      - php-xml
+      - redis
   CentOS:
     config_directory: /etc/httpd/conf.d
     destination: /var/www/html
