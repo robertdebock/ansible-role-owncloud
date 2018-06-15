@@ -9,18 +9,18 @@ owncloud_requirements:
 
 owncloud_configuration:
   Alpine:
-  config_directory: /etc/apache2/conf.d
-  destination: /var/www/{{ httpd_servername | default(ansible_fqdn) }}
-  requirements:
-    - php7-apcu
-    - php7-gd
-    - php7-json
-    - php7-ldap
-    - php7-mbstring
-    - php7-mysqlnd
-    - php7-posix
-    - php7-xml
-    - redis
+    config_directory: /etc/apache2/conf.d
+    destination: /var/www/{{ httpd_servername | default(ansible_fqdn) }}
+    requirements:
+      - php7-apcu
+      - php7-gd
+      - php7-json
+      - php7-ldap
+      - php7-mbstring
+      - php7-mysqlnd
+      - php7-posix
+      - php7-xml
+      - redis
   CentOS:
     config_directory: /etc/httpd/conf.d
     destination: /var/www/html
