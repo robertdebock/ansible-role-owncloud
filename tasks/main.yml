@@ -27,5 +27,6 @@
     creates: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud/config/config.php"
     chdir: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud"
   become_user: "{{ owncloud_configuration[ansible_distribution]['httpd_owner'] }}"
+  become: yes
   when:
     - ansible_virtualization_type != "docker"
