@@ -57,7 +57,7 @@ owncloud_configuration:
       - php-gd
       - php-ldap
       - php-mbstring
-      - php-mysqlnd
+      - php-mysql
       - redis-server
   Fedora:
     config_directory: /etc/httpd/conf.d
@@ -91,5 +91,5 @@ owncloud_configuration:
       - php-gd
       - php-ldap
       - php-mbstring
-      - php-mysqlnd
+      - php-mysql
       - redis-server
