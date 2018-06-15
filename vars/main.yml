@@ -23,7 +23,7 @@ owncloud_configuration:
       - redis
   Archlinux:
     config_directory: /etc/httpd/conf/extra
-    destination: /srv/httpd
+    destination: /srv/http
     requirements:
       - php-apcu
       - php-gd
