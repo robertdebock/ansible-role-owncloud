@@ -24,3 +24,5 @@
   args:
     creates: /var/i/dont/know
     chdir: /var/www/html/owncloud
+  when:
+    - ansible_virtualization_type != "docker"
