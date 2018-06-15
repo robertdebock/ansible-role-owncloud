@@ -74,7 +74,7 @@ owncloud_configuration:
       - php-xml
       - redis
   openSUSE Leap:
-    destination: /var/www/html
+    destination: /srv/www/htdocs
     config_directory: /etc/apache2/conf.d
     requirements:
       - php-posix
