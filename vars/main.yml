@@ -27,12 +27,7 @@ owncloud_configuration:
     requirements:
       - php-apcu
       - php-gd
-      - php-json
       - php-ldap
-      - php-mbstring
-      - php-mysqlnd
-      - php-posix
-      - php-xml
       - redis
   CentOS:
     config_directory: /etc/httpd/conf.d
