@@ -1,6 +1,7 @@
-Alias /owncloud "/var/www/owncloud/"
+{{ ansible_managed | comment }}
+Alias /owncloud "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud"
 
-<Directory /var/www/owncloud/>
+<Directory {{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud/>
   Options +FollowSymlinks
   AllowOverride All
 
@@ -8,7 +9,7 @@ Alias /owncloud "/var/www/owncloud/"
   Dav off
  </IfModule>
 
-SetEnv HOME /var/www/owncloud
-SetEnv HTTP_HOME /var/www/owncloud
+SetEnv HOME {{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud
+SetEnv HTTP_HOME {{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud
 
 </Directory>

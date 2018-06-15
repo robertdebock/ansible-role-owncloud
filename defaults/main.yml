@@ -1,6 +1,6 @@
 ---
 # defaults file for owncloud
-owncloud_version: 9.1.8
+owncloud_version: 10.0.8
 
 owncloud_database_name: owncloud
 owncloud_database_user: owncloud

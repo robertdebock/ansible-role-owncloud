@@ -59,6 +59,7 @@ owncloud_configuration:
     destination: /var/www/html
     requirements:
       - php-gd
+      - php-intl
       - php-json
       - php-ldap
       - php-mbstring
@@ -67,6 +68,7 @@ owncloud_configuration:
       - php-pecl-redis
       - php-process
       - php-xml
+      - php-zip
       - redis
   openSUSE Leap:
     destination: /srv/www/htdocs

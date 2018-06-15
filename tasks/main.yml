@@ -22,7 +22,7 @@
 - name: configure owncloud
   command: php occ maintenance:install --database "mysql" --database-name "{{ owncloud_database_name }}" --database-user "{{ owncloud_database_user }}" --database-pass "{{ owncloud_database_pass }}" --admin-user "{{ owncloud_database_admin_user }}" --admin-pass "{{ owncloud_database_admin_pass }}"
   args:
-    creates: /var/i/dont/know
-    chdir: /var/www/html/owncloud
+    creates: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud/config/config.php"
+    chdir: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud"
   when:
     - ansible_virtualization_type != "docker"
