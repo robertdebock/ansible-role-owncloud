@@ -11,6 +11,8 @@
     src: "{{ owncloud_archive }}"
     dest: "{{ owncloud_configuration[ansible_distribution]['destination'] }}"
     remote_src: yes
+    owner: "{{ owncloud_configuration[ansible_distribution]['httpd_owner'] }}"
+    group: "{{ owncloud_configuration[ansible_distribution]['httpd_group'] }}"
 
 - name: place owncloud.conf
   template:
@@ -24,5 +26,6 @@
   args:
     creates: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud/config/config.php"
     chdir: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud"
+  become_user: "{{ owncloud_configuration[ansible_distribution]['httpd_owner'] }}"
   when:
     - ansible_virtualization_type != "docker"
