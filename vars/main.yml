@@ -10,7 +10,7 @@ owncloud_requirements:
 owncloud_configuration:
   Alpine:
     config_directory: /etc/apache2/conf.d
-    destination: /var/www/{{ httpd_servername | default(ansible_fqdn) }}
+    destination: /var/www/
     requirements:
       - php7-apcu
       - php7-gd
