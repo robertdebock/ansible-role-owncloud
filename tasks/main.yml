@@ -13,6 +13,7 @@
     remote_src: yes
     owner: "{{ owncloud_configuration[ansible_distribution]['httpd_owner'] }}"
     group: "{{ owncloud_configuration[ansible_distribution]['httpd_group'] }}"
+    creates: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud"
 
 - name: place owncloud.conf
   template:
