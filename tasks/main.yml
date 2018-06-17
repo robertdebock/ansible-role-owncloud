@@ -6,6 +6,18 @@
   with_items:
     - "{{ owncloud_configuration[ansible_distribution]['requirements'] }}"
 
+- name: modify selinux settings
+  seboolean:
+    name: "{{ item }}"
+    state: yes
+    persistent: yes
+  when:
+    - ansible_selinux.status is defined
+    - ansible_selinux.status == "enabled"
+  with_items:
+    - httpd_tmp_exec
+    - httpd_unified
+
 - name: install software
   unarchive:
     src: "{{ owncloud_archive }}"
@@ -14,6 +26,19 @@
     owner: "{{ owncloud_configuration[ansible_distribution]['httpd_owner'] }}"
     group: "{{ owncloud_configuration[ansible_distribution]['httpd_group'] }}"
     creates: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud"
+
+- name: set permissions
+  file:
+    name: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud/{{ item.name }}"
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+  with_items:
+    - name: .htaccess
+      group: root
+      mode: 0644
+    - name: data/.htaccess
+      group: root
+      mode: 0644
 
 - name: place owncloud.conf
   template:
@@ -31,3 +56,9 @@
   become: yes
   when:
     - ansible_virtualization_type != "docker"
+
+- name: start php-fpm
+  service:
+    name: php-fpm
+    state: started
+    enabled: true

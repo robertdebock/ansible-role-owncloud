@@ -15,6 +15,7 @@ owncloud_configuration:
     httpd_group: apache
     requirements:
       - php7-apcu
+      - php7-fpm
       - php7-gd
       - php7-json
       - php7-ldap
@@ -29,6 +30,7 @@ owncloud_configuration:
     httpd_owner: root
     httpd_group: root
     requirements:
+      - php-fpm
       - php-apcu
       - php-gd
       - php-ldap
@@ -39,6 +41,7 @@ owncloud_configuration:
     httpd_owner: apache
     httpd_group: apache
     requirements:
+      - php-fpm
       - php-gd
       - php-json
       - php-ldap
@@ -57,6 +60,7 @@ owncloud_configuration:
     requirements:
       - php-apcu
       - php-common
+      - php-fpm
       - php-gd
       - php-ldap
       - php-mbstring
@@ -68,6 +72,7 @@ owncloud_configuration:
     httpd_owner: apache
     httpd_group: apache
     requirements:
+      - php-fpm
       - php-gd
       - php-intl
       - php-json
@@ -87,6 +92,7 @@ owncloud_configuration:
     httpd_group: www
     requirements:
       - php-posix
+      - php5-fpm
       - php5-gd
       - php5-ldap
       - php5-mbstring
@@ -99,6 +105,7 @@ owncloud_configuration:
     requirements:
       - php-apcu
       - php-common
+      - php-fpm
       - php-gd
       - php-ldap
       - php-mbstring
