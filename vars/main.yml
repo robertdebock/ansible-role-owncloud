@@ -7,6 +7,15 @@ owncloud_packages:
 
 owncloud_requirements:
 
+owncloud_permissions:
+  - name: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud/.htaccess"
+    group: root
+    mode: 0640
+
+owncloud_sebooleans:
+  - httpd_tmp_exec
+  - httpd_unified
+
 owncloud_configuration:
   Alpine:
     config_directory: /etc/apache2/conf.d

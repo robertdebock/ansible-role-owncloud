@@ -15,8 +15,7 @@
     - ansible_selinux.status is defined
     - ansible_selinux.status == "enabled"
   with_items:
-    - httpd_tmp_exec
-    - httpd_unified
+    - "{{ owncloud_sebooleans }}"
 
 - name: install software
   unarchive:
