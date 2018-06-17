@@ -29,16 +29,11 @@
 
 - name: set permissions
   file:
-    name: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud/{{ item.name }}"
+    name: "{{ item.name }}"
     group: "{{ item.group }}"
     mode: "{{ item.mode }}"
   with_items:
-    - name: .htaccess
-      group: root
-      mode: 0644
-    - name: data/.htaccess
-      group: root
-      mode: 0644
+    - "{{ owncloud_permissions }}"
 
 - name: place owncloud.conf
   template:
