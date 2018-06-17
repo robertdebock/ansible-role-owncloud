@@ -84,7 +84,7 @@ owncloud_configuration:
     destination: /srv/www/htdocs
     config_directory: /etc/apache2/conf.d
     httpd_owner: wwwrun
-    httpd_group: wwwrun
+    httpd_group: www
     requirements:
       - php-posix
       - php5-gd
