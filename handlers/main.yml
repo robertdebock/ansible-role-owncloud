@@ -1,2 +1,7 @@
 ---
 # handlers file for owncloud
+- name: set owncloud trusted domains
+  lineinfile:
+    path: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud/config/config.php"
+    regexp: "    0 => '"
+    line: "    0 => '{{ ansible_default_ipv4.address }}'"
