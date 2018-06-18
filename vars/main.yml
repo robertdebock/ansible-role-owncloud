@@ -11,6 +11,9 @@ owncloud_permissions:
   - name: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud/.htaccess"
     group: root
     mode: 0640
+  - name: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud/data/.htaccess"
+    group: root
+    mode: 0640
 
 owncloud_sebooleans:
   - httpd_tmp_exec

@@ -26,14 +26,6 @@
     group: "{{ owncloud_configuration[ansible_distribution]['httpd_group'] }}"
     creates: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud"
 
-- name: set permissions
-  file:
-    name: "{{ item.name }}"
-    group: "{{ item.group }}"
-    mode: "{{ item.mode }}"
-  with_items:
-    - "{{ owncloud_permissions }}"
-
 - name: place owncloud.conf
   template:
     src: owncloud.conf.j2
@@ -50,6 +42,20 @@
   become: yes
   when:
     - ansible_virtualization_type != "docker"
+
+- name: set permissions
+  file:
+    name: "{{ item.name }}"
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+  with_items:
+    - "{{ owncloud_permissions }}"
+
+- name: set owncloud trusted domains
+  lineinfile:
+    path: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud/config/config.php"
+    regexp: "    0 => '"
+    line: "    0 => '{{ ansible_default_ipv4.address }}'"
 
 - name: start php-fpm
   service:
