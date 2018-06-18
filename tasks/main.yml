@@ -34,7 +34,7 @@
     - restart httpd
 
 - name: configure owncloud
-  command: php occ maintenance:install --database "mysql" --database-name "{{ owncloud_database_name }}" --database-user "{{ owncloud_database_user }}" --database-pass "{{ owncloud_database_pass }}" --admin-user "{{ owncloud_database_admin_user }}" --admin-pass "{{ owncloud_database_admin_pass }}"
+  command: php occ maintenance:install --database "mysql" --database-name "{{ owncloud_database_name }}" --database-user "{{ owncloud_database_user }}" --database-pass "{{ owncloud_database_pass }}" --database-host "{{ owncloud_database_host }}" --admin-user "{{ owncloud_admin_user }}" --admin-pass "{{ owncloud_admin_pass }}"
   args:
     creates: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud/config/config.php"
     chdir: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud"
