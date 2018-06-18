@@ -62,3 +62,5 @@
     name: php-fpm
     state: started
     enabled: true
+  when:
+    - ansible_virtualization_type != "docker"
