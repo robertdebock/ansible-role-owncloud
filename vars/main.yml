@@ -55,7 +55,7 @@ owncloud_configuration:
       - php-json
       - php-ldap
       - php-mbstring
-      - php-mysqlnd
+      - php-mysql
       - php-pecl-apcu
       - php-pecl-redis
       - php-process
@@ -87,7 +87,7 @@ owncloud_configuration:
       - php-json
       - php-ldap
       - php-mbstring
-      - php-mysqlnd
+      - php-mysql
       - php-pecl-apcu
       - php-pecl-redis
       - php-process
