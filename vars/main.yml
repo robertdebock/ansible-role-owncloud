@@ -106,6 +106,18 @@ owncloud_configuration:
       - php5-ldap
       - php5-mbstring
       - redis
+  openSUSE Tumbleweed:
+    destination: /srv/www/htdocs
+    config_directory: /etc/apache2/conf.d
+    httpd_owner: wwwrun
+    httpd_group: www
+    requirements:
+      - php-posix
+      - php5-fpm
+      - php5-gd
+      - php5-ldap
+      - php5-mbstring
+      - redis
   Ubuntu:
     destination: /var/www/html
     config_directory: /etc/apache2/conf-enabled
