@@ -14,7 +14,7 @@
   package:
     name: "{{ item }}"
   with_items:
-    - "{{ owncloud_configuration[ansible_distribution]['requirements'] }}"
+    - "{{ owncloud_requirements }}"
 
 - name: modify selinux settings
   seboolean:
@@ -30,25 +30,25 @@
 - name: install software
   unarchive:
     src: "{{ owncloud_archive }}"
-    dest: "{{ owncloud_configuration[ansible_distribution]['destination'] }}"
+    dest: "{{ owncloud_destination }}"
     remote_src: yes
-    owner: "{{ owncloud_configuration[ansible_distribution]['httpd_owner'] }}"
-    group: "{{ owncloud_configuration[ansible_distribution]['httpd_group'] }}"
-    creates: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud"
+    owner: "{{ owncloud_httpd_owner }}"
+    group: "{{ owncloud_httpd_group }}"
+    creates: "{{ owncloud_destination }}/owncloud"
 
 - name: place owncloud.conf
   template:
     src: owncloud.conf.j2
-    dest: "{{ owncloud_configuration[ansible_distribution]['config_directory'] }}/owncloud.conf"
+    dest: "{{ owncloud_config_directory }}/owncloud.conf"
   notify:
     - restart httpd
 
 - name: configure owncloud
   command: php occ maintenance:install --database "mysql" --database-name "{{ owncloud_database_name }}" --database-user "{{ owncloud_database_user }}" --database-pass "{{ owncloud_database_pass }}" --database-host "{{ owncloud_database_host }}" --admin-user "{{ owncloud_admin_user }}" --admin-pass "{{ owncloud_admin_pass }}"
   args:
-    creates: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud/config/config.php"
-    chdir: "{{ owncloud_configuration[ansible_distribution]['destination'] }}/owncloud"
-  become_user: "{{ owncloud_configuration[ansible_distribution]['httpd_owner'] }}"
+    creates: "{{ owncloud_destination }}/owncloud/config/config.php"
+    chdir: "{{ owncloud_destination }}/owncloud"
+  become_user: "{{ owncloud_httpd_owner }}"
   become: yes
   when:
     - ansible_virtualization_type != "docker"
