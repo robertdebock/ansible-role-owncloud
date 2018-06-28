@@ -1,0 +1,12 @@
+---
+# vars file for owncloud
+owncloud_config_directory: /etc/httpd/conf/extra
+owncloud_destination: /srv/http
+owncloud_httpd_owner: root
+owncloud_httpd_group: root
+owncloud_requirements:
+  - php-fpm
+  - php-apcu
+  - php-gd
+  - php-ldap
+  - redis

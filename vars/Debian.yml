@@ -1,0 +1,15 @@
+---
+# vars file for owncloud
+owncloud_config_directory: /etc/apache2/conf-enabled
+owncloud_destination: /var/www/html
+owncloud_httpd_owner: www-data
+owncloud_httpd_group: www-data
+owncloud_requirements:
+  - php-apcu
+  - php-common
+  - php-fpm
+  - php-gd
+  - php-ldap
+  - php-mbstring
+  - php-mysql
+  - redis-server

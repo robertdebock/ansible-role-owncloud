@@ -1,0 +1,17 @@
+---
+# vars file for owncloud
+owncloud_config_directory: /etc/apache2/conf.d
+owncloud_destination: /var/www/
+owncloud_httpd_owner: apache
+owncloud_httpd_group: apache
+owncloud_requirements:
+  - php7-apcu
+  - php7-fpm
+  - php7-gd
+  - php7-json
+  - php7-ldap
+  - php7-mbstring
+  - php7-mysqlnd
+  - php7-posix
+  - php7-xml
+  - redis
