@@ -8,14 +8,14 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: owncloud-ubuntu-bionic
-    image: ubuntu:bionic
+  - name: owncloud-alpine-edge
+    image: alpine:edge
 provisioner:
   name: ansible
   lint:
     name: ansible-lint
 scenario:
-  name: ubuntu-bionic
+  name: alpine-edge
 verifier:
   name: goss
   lint:
