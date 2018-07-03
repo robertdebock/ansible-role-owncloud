@@ -31,7 +31,7 @@ This role can be used to prepare your system:
 - [robertdebock.buildtools](https://travis-ci.org/robertdebock/ansible-role-buildtools)
 - [robertdebock.epel](https://travis-ci.org/robertdebock/ansible-role-epel)
 - [robertdebock.scl](https://travis-ci.org/robertdebock/ansible-role-scl)
-- [robertdebock.python-pip](https://travis-ci.org/robertdebock/ansible-role-python-pip)
+- [robertdebock.python_pip](https://travis-ci.org/robertdebock/ansible-role-python_pip)
 - [robertdebock.httpd](https://travis-ci.org/robertdebock/ansible-role-httpd)
 - [robertdebock.php](https://travis-ci.org/robertdebock/ansible-role-php)
 
@@ -102,9 +102,9 @@ The simplest way possible:
       include_role:
         name: robertdebock.scl
 
-    - name: include python-pip role
+    - name: include python_pip role
       include_role:
-        name: robertdebock.python-pip
+        name: robertdebock.python_pip
 
     - name: include php role
       include_role:

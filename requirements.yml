@@ -3,6 +3,6 @@
 - robertdebock.epel
 - robertdebock.scl
 - robertdebock.buildtools
-- robertdebock.python-pip
+- robertdebock.python_pip
 - robertdebock.httpd
 - robertdebock.php
