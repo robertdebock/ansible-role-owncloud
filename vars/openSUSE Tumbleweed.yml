@@ -5,9 +5,9 @@ owncloud_config_directory: /etc/apache2/conf.d
 owncloud_httpd_owner: wwwrun
 owncloud_httpd_group: www
 owncloud_requirements:
-  - php-posix
-  - php5-fpm
-  - php5-gd
-  - php5-ldap
-  - php5-mbstring
+  - php7-posix
+  - php7-fpm
+  - php7-gd
+  - php7-ldap
+  - php7-mbstring
   - redis
