@@ -20,7 +20,16 @@ Access to a repository containing packages, likely on the internet.
 Role Variables
 --------------
 
-None known.
+- owncloud_version: The version of owncloud to install.
+
+- owncloud_domain_url: The domain under which this server will be available.
+
+- owncloud_database_name: The database to connect to.
+- owncloud_database_user: The username to connect to the database.
+- owncloud_database_pass: The password to connect to the database.
+- owncloud_database_host: The host where the database is hosted.
+- owncloud_admin_user: A username to create in Owncloud.
+- owncloud_admin_pass: A password for that user.
 
 Dependencies
 ------------
