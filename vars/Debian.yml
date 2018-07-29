@@ -12,4 +12,5 @@ owncloud_requirements:
   - php-ldap
   - php-mbstring
   - php-mysql
+  - php-xml
   - redis-server
