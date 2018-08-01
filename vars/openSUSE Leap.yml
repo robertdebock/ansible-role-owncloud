@@ -6,6 +6,7 @@ owncloud_httpd_owner: wwwrun
 owncloud_httpd_group: www
 owncloud_requirements:
   - php-posix
+  - php5-curl
   - php5-fpm
   - php5-gd
   - php5-intl

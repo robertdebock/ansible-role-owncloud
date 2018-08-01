@@ -14,6 +14,7 @@ owncloud_destination: /var/www/html
 owncloud_httpd_owner: apache
 owncloud_httpd_group: apache
 owncloud_requirements:
+  - php-curl
   - php-fpm
   - php-gd
   - php-intl
