@@ -9,6 +9,7 @@ owncloud_requirements:
   - php-common
   - php-fpm
   - php-gd
+  - php-intl
   - php-ldap
   - php-mbstring
   - php-mysql

@@ -8,6 +8,7 @@ owncloud_requirements:
   - php-posix
   - php5-fpm
   - php5-gd
+  - php5-intl
   - php5-ldap
   - php5-mbstring
   - redis

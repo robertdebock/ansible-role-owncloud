@@ -7,6 +7,7 @@ owncloud_httpd_group: apache
 owncloud_requirements:
   - php-fpm
   - php-gd
+  - php-intl
   - php-json
   - php-ldap
   - php-mbstring

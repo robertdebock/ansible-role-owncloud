@@ -8,5 +8,6 @@ owncloud_requirements:
   - php-fpm
   - php-apcu
   - php-gd
+  - php-intl
   - php-ldap
   - redis
