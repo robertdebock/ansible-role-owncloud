@@ -5,7 +5,6 @@ owncloud_destination: /srv/http
 owncloud_httpd_owner: root
 owncloud_httpd_group: root
 owncloud_requirements:
-  - php-curl
   - php-fpm
   - php-apcu
   - php-gd
