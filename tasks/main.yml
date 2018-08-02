@@ -65,7 +65,7 @@
 
 - name: start php-fpm
   service:
-    name: php-fpm
+    name: "{{ owncloud_fpm_service }}"
     state: started
     enabled: yes
   when:
