@@ -16,3 +16,5 @@ owncloud_requirements:
   - php-mysql
   - php-xml
   - redis-server
+
+owncloud_fpm_service: php7.2-fpm

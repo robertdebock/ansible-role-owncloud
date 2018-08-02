@@ -33,3 +33,5 @@ owncloud_permissions:
   - name: "{{ owncloud_destination }}/owncloud/.htaccess"
     group: root
     mode: 0640
+
+owncloud_fpm_service: php-fpm
