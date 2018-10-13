@@ -136,7 +136,7 @@ owncloud_packages:
   - owncloud-files
 
 owncloud_permissions:
-  - name: "{{ owncloud_destination }}/owncloud/.htaccess"
+  - name: "{{ owncloud_destination[ansible_distribution] | default(owncloud_destination['default']) }}/owncloud/.htaccess"
     group: root
     mode: 0640
 
