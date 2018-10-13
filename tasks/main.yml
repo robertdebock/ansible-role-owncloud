@@ -1,21 +1,10 @@
 ---
 # tasks file for owncloud
-- name: load default variables
-  include_vars:
-    file: default.yml
-
-- name: load os-specific variables
-  include_vars: "{{ item }}"
-  with_first_found:
-    - "{{ ansible_distribution }}.yml"
-    - default.yml
-
 - name: install requirements
   package:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - "{{ owncloud_requirements }}"
+    name: "{{ owncloud_requirements[ansible_distribution]
+          | default(owncloud_requirements['default']) }}"
+    state: "{{ owncloud_package_state }}"
 
 - name: modify selinux settings
   seboolean:
@@ -31,25 +20,33 @@
 - name: install software
   unarchive:
     src: "{{ owncloud_archive }}"
-    dest: "{{ owncloud_destination }}"
+    dest: "{{ owncloud_destination[ansible_distribution]
+          | default(owncloud_destination['default']) }}"
     remote_src: yes
-    owner: "{{ owncloud_httpd_owner }}"
-    group: "{{ owncloud_httpd_group }}"
-    creates: "{{ owncloud_destination }}/owncloud"
+    owner: "{{ owncloud_httpd_owner[ansible_distribution]
+           | default(owncloud_httpd_owner['default']) }}"
+    group: "{{ owncloud_httpd_group[ansible_distribution]
+           | default(owncloud_httpd_group['default']) }}"
+    creates: "{{ owncloud_destination[ansible_distribution]
+          | default(owncloud_destination['default']) }}/owncloud"
 
 - name: place owncloud.conf
   template:
     src: owncloud.conf.j2
-    dest: "{{ owncloud_config_directory }}/owncloud.conf"
+    dest: "{{ owncloud_config_directory[ansible_distribution]
+          | default(owncloud_config_directory['default']) }}/owncloud.conf"
   notify:
     - restart httpd
 
 - name: configure owncloud
   command: php occ maintenance:install --database "mysql" --database-name "{{ owncloud_database_name }}" --database-user "{{ owncloud_database_user }}" --database-pass "{{ owncloud_database_pass }}" --database-host "{{ owncloud_database_host }}" --admin-user "{{ owncloud_admin_user }}" --admin-pass "{{ owncloud_admin_pass }}"
   args:
-    creates: "{{ owncloud_destination }}/owncloud/config/config.php"
-    chdir: "{{ owncloud_destination }}/owncloud"
-  become_user: "{{ owncloud_httpd_owner }}"
+    creates: "{{ owncloud_destination[ansible_distribution]
+             | default(owncloud_destination['default']) }}/owncloud/config/config.php"
+    chdir: "{{ owncloud_destination[ansible_distribution]
+           | default(owncloud_destination['default']) }}/owncloud"
+  become_user: "{{ owncloud_httpd_owner[ansible_distribution]
+               | default(owncloud_httpd_owner['default']) }}"
   become: yes
   when:
     - ansible_virtualization_type != "docker"

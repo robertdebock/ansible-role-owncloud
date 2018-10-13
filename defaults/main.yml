@@ -16,3 +16,6 @@ owncloud_database_pass: 0wnCl0uD
 owncloud_database_host: localhost
 owncloud_admin_user: admin
 owncloud_admin_pass: OwnCl0uD
+
+# To update all packages installed by this roles, set `owncloud_package_state` to `latest`.
+owncloud_package_state: present

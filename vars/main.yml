@@ -1,0 +1,143 @@
+---
+# vars file for owncloud
+owncloud_requirements:
+  default:
+    - php-curl
+    - php-fpm
+    - php-gd
+    - php-intl
+    - php-json
+    - php-ldap
+    - php-mbstring
+    - php-mysqlnd
+    - php-pecl-apcu
+    - php-pecl-redis
+    - php-process
+    - php-xml
+    - php-zip
+    - redis
+  Alpine:
+    - php7-apcu
+    - php7-curl
+    - php7-fpm
+    - php7-gd
+    - php7-intl
+    - php7-json
+    - php7-ldap
+    - php7-mbstring
+    - php7-mysqlnd
+    - php7-posix
+    - php7-xml
+    - redis
+  Archlinux:
+    - php-fpm
+    - php-apcu
+    - php-gd
+    - php-intl
+    - php-ldap
+    - redis
+  CentOS:
+    - php-curl
+    - php-fpm
+    - php-gd
+    - php-intl
+    - php-json
+    - php-ldap
+    - php-mbstring
+    - php-mysql
+    - php-pecl-apcu
+    - php-pecl-redis
+    - php-process
+    - php-xml
+    - redis
+  Debian:
+    - php-apcu
+    - php-common
+    - php-curl
+    - php-fpm
+    - php-gd
+    - php-intl
+    - php-ldap
+    - php-mbstring
+    - php-mysql
+    - php-xml
+    - redis-server
+  Ubuntu:
+    - php-apcu
+    - php-common
+    - php-curl
+    - php-fpm
+    - php-gd
+    - php-intl
+    - php-ldap
+    - php-mbstring
+    - php-mysql
+    - php-xml
+    - redis-server
+  openSUSE Leap:
+    - php-posix
+    - php5-curl
+    - php5-fpm
+    - php5-gd
+    - php5-intl
+    - php5-ldap
+    - php5-mbstring
+    - redis
+  openSUSE Tumbleweed:
+    - php-posix
+    - php5-curl
+    - php5-fpm
+    - php5-gd
+    - php5-intl
+    - php5-ldap
+    - php5-mbstring
+    - redis
+
+owncloud_sebooleans:
+  - httpd_tmp_exec
+  - httpd_unified
+
+owncloud_archive: "https://download.owncloud.org/community/owncloud-{{ owncloud_version }}.zip"
+
+owncloud_destination:
+  default: /var/www/html
+  Alpine: /var/www
+  Archlinux: /srv/http
+  openSUSE Leap: /srv/www/htdocs
+  openSUSE Tumbleweed: /srv/www/htdocs
+
+owncloud_httpd_owner:
+  default: apache
+  Archlinux: root
+  Debian: www-data
+  Ubuntu: www-data
+  openSUSE Leap: wwwrun
+  openSUSE Tumbleweed: wwwrun
+
+owncloud_httpd_group:
+  default: apache
+  Archlinux: root
+  Debian: www-data
+  Ubuntu: www-data
+  openSUSE Leap: www
+  openSUSE Tumbleweed: www
+
+owncloud_config_directory:
+  default: /etc/httpd/conf.d
+  Alpine: /etc/apache2/conf.d
+  Archlinux: /etc/httpd/conf/extra
+  CentOS: /etc/httpd/conf.d
+  Debian: /etc/apache2/conf-enabled
+  Ubuntu: /etc/apache2/conf-enabled
+  openSUSE Leap: /etc/apache2/conf.d
+  openSUSE Tumbleweed: /etc/apache2/conf.d
+
+owncloud_packages:
+  - owncloud-files
+
+owncloud_permissions:
+  - name: "{{ owncloud_destination }}/owncloud/.htaccess"
+    group: root
+    mode: 0640
+
+owncloud_fpm_service: php7.2-fpm
