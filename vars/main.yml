@@ -84,13 +84,13 @@ owncloud_requirements:
     - php5-mbstring
     - redis
   openSUSE Tumbleweed:
-    - php-posix
-    - php5-curl
-    - php5-fpm
-    - php5-gd
-    - php5-intl
-    - php5-ldap
-    - php5-mbstring
+    - php7-posix
+    - php7-curl
+    - php7-fpm
+    - php7-gd
+    - php7-intl
+    - php7-ldap
+    - php7-mbstring
     - redis
 
 owncloud_sebooleans:
