@@ -1,14 +1,14 @@
 ---
 - name: Converge
   hosts: all
-  gather_facts: false
   become: true
+  gather_facts: false
 
   roles:
-    - role: robertdebock.bootstrap
-    - role: robertdebock.buildtools
-    - role: robertdebock.epel
-    - role: robertdebock.python_pip
-    - role: robertdebock.httpd
-    - role: robertdebock.php
-    - role: ansible-role-owncloud
+    - robertdebock.bootstrap
+    - robertdebock.buildtools
+    - robertdebock.epel
+    - robertdebock.python_pip
+    - robertdebock.httpd
+    - robertdebock.php
+    - ansible-role-owncloud

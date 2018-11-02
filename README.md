@@ -5,60 +5,83 @@ owncloud
 
 Provides owncloud for your system.
 
-[Unit tests](https://travis-ci.org/robertdebock/ansible-role-owncloud) are done on every commit and periodically.
 
-If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-owncloud/issues)
+Example Playbook
+----------------
 
-To test this role locally please use [Molecule](https://github.com/metacloud/molecule):
+This example is taken from `molecule/default/playbook.yml`:
 ```
-pip install molecule
-molecule test
+---
+- name: Converge
+  hosts: all
+  become: true
+  gather_facts: false
+
+  roles:
+    - robertdebock.bootstrap
+    - robertdebock.buildtools
+    - robertdebock.epel
+    - robertdebock.python_pip
+    - robertdebock.httpd
+    - robertdebock.php
+    - robertdebock.owncloud
+
 ```
-There are many scenarios available, please have a look in the `molecule/` directory.
+
+Role Variables
+--------------
+
+These variables are set in `defaults/main.yml`:
+```
+---
+# defaults file for owncloud
+
+# The version of owncloud to install.
+owncloud_version: 10.0.8
+
+# The domain under which this server will be available. For example:
+# "localhost" or "owncloud.example.com". Does not include protocol identifier,
+# (https://) or directories. (/owncloud)
+owncloud_domain_url: "{{ ansible_fqdn }}"
+
+# Database connection details.
+owncloud_database_name: owncloud
+owncloud_database_user: owncloud
+owncloud_database_pass: 0wnCl0uD
+owncloud_database_host: localhost
+owncloud_admin_user: admin
+owncloud_admin_pass: OwnCl0uD
+
+# To update all packages installed by this roles, set `owncloud_package_state` to `latest`.
+owncloud_package_state: present
+
+```
+
+Requirements
+------------
+
+- Access to a repository containing packages, likely on the internet.
+- A recent version of Ansible. (Tests run on the last 3 release of Ansible.)
+
+The following roles can be installed to ensure all requirements are met, using `ansible-galaxy install -r requirements.yml`:
+
+---
+- robertdebock.bootstrap
+- robertdebock.epel
+- robertdebock.buildtools
+- robertdebock.python_pip
+- robertdebock.httpd
+- robertdebock.php
+
 
 Context
 -------
+
 This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://robertdebock.nl/) for further information.
 
 Here is an overview of related roles:
 ![dependencies](https://raw.githubusercontent.com/robertdebock/drawings/artifacts/owncloud.png "Dependency")
 
-Requirements
-------------
-
-Access to a repository containing packages, likely on the internet.
-
-Role Variables
---------------
-
-- owncloud_version: The version of owncloud to install.
-
-- owncloud_domain_url: The domain under which this server will be available.
-
-- owncloud_database_name: The database to connect to.
-- owncloud_database_user: The username to connect to the database.
-- owncloud_database_pass: The password to connect to the database.
-- owncloud_database_host: The host where the database is hosted.
-- owncloud_admin_user: A username to create in Owncloud.
-- owncloud_admin_pass: A password for that user.
-
-Dependencies
-------------
-
-This role can be used to prepare your system:
-
-- [robertdebock.bootstrap](https://travis-ci.org/robertdebock/ansible-role-bootstrap)
-- [robertdebock.buildtools](https://travis-ci.org/robertdebock/ansible-role-buildtools)
-- [robertdebock.epel](https://travis-ci.org/robertdebock/ansible-role-epel)
-- [robertdebock.python_pip](https://travis-ci.org/robertdebock/ansible-role-python_pip)
-- [robertdebock.httpd](https://travis-ci.org/robertdebock/ansible-role-httpd)
-- [robertdebock.php](https://travis-ci.org/robertdebock/ansible-role-php)
-
-
-Download the dependencies by issuing this command:
-```
-ansible-galaxy install --role-file requirements.yml
-```
 
 Compatibility
 -------------
@@ -85,67 +108,26 @@ This role has been tested against the following distributions and Ansible versio
 
 A single star means the build may fail, it's marked as an experimental build.
 
-Example Playbook
-----------------
+Testing
+-------
 
-The simplest way possible:
+[Unit tests](https://travis-ci.org/robertdebock/ansible-role-owncloud) are done on every commit and periodically.
+
+If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-owncloud/issues)
+
+To test this role locally please use [Molecule](https://github.com/metacloud/molecule):
 ```
-- hosts: servers
-  become: true
-  gather_facts: no
-
-  tasks:
-    - name: include bootstrap role
-      include_role:
-        name: robertdebock.bootstrap
-
-    - name: include mysql role
-      include_role:
-        name: robertdebock.mysql
-
-    - name: create mysql database
-      mysql_db:
-        name: owncloud
-
-    - name: create mysql user
-      mysql_user:
-        name: owncloud
-        password: OwnCl0uD
-        priv: "*.*:ALL"
-
-    - name: include epel role
-      include_role:
-        name: robertdebock.epel
-
-    - name: include buildtools role
-      include_role:
-        name: robertdebock.buildtools
-
-    - name: include python_pip role
-      include_role:
-        name: robertdebock.python_pip
-
-    - name: include php role
-      include_role:
-        name: robertdebock.php
-
-    - name: include role httpd
-      include_role:
-        name: robertdebock.httpd
-
-    - name: include owncloud role
-      include_role:
-        name: robertdebock.owncloud
+pip install molecule
+molecule test
 ```
+There are many specific scenarios available, please have a look in the `molecule/` directory.
 
-You can also call this role without having `become: true`, because the tasks that require elevated privileges have `become: true` added.
-
-Install this role using `galaxy install robertdebock.owncloud`.
 
 License
 -------
 
-Apache License, Version 2.0
+Apache-2.0
+
 
 Author Information
 ------------------

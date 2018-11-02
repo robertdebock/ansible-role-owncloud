@@ -1,6 +1,6 @@
 ---
 # vars file for owncloud
-owncloud_requirements:
+_owncloud_requirements:
   default:
     - php-curl
     - php-fpm
@@ -93,20 +93,24 @@ owncloud_requirements:
     - php7-mbstring
     - redis
 
+owncloud_requirements: "{{ _owncloud_requirements[ansible_distribution] | default(_owncloud_requirements['default']) }}"
+
 owncloud_sebooleans:
   - httpd_tmp_exec
   - httpd_unified
 
 owncloud_archive: "https://download.owncloud.org/community/owncloud-{{ owncloud_version }}.zip"
 
-owncloud_destination:
+_owncloud_destination:
   default: /var/www/html
   Alpine: /var/www
   Archlinux: /srv/http
   openSUSE Leap: /srv/www/htdocs
   openSUSE Tumbleweed: /srv/www/htdocs
 
-owncloud_httpd_owner:
+owncloud_destination: "{{ _owncloud_destination[ansible_distribution] | default(_owncloud_destination['default']) }}"
+
+_owncloud_httpd_owner:
   default: apache
   Archlinux: root
   Debian: www-data
@@ -114,7 +118,9 @@ owncloud_httpd_owner:
   openSUSE Leap: wwwrun
   openSUSE Tumbleweed: wwwrun
 
-owncloud_httpd_group:
+owncloud_httpd_owner: "{{ _owncloud_httpd_owner[ansible_distribution] | default(_owncloud_httpd_owner['default']) }}"
+
+_owncloud_httpd_group:
   default: apache
   Archlinux: root
   Debian: www-data
@@ -122,7 +128,9 @@ owncloud_httpd_group:
   openSUSE Leap: www
   openSUSE Tumbleweed: www
 
-owncloud_config_directory:
+owncloud_httpd_group: "{{ _owncloud_httpd_group[ansible_distribution] | default(_owncloud_httpd_group['default']) }}"
+
+_owncloud_config_directory:
   default: /etc/httpd/conf.d
   Alpine: /etc/apache2/conf.d
   Archlinux: /etc/httpd/conf/extra
@@ -132,14 +140,21 @@ owncloud_config_directory:
   openSUSE Leap: /etc/apache2/conf.d
   openSUSE Tumbleweed: /etc/apache2/conf.d
 
+owncloud_config_directory: "{{ _owncloud_config_directory[ansible_distribution] | default(_owncloud_config_directory['default']) }}"
+
 owncloud_packages:
   - owncloud-files
 
 owncloud_permissions:
-  - name: "{{ owncloud_destination[ansible_distribution] | default(owncloud_destination['default']) }}/owncloud/.htaccess"
+  - name: "{{ owncloud_destination }}/owncloud/.htaccess"
     group: root
     mode: 0640
 
-owncloud_fpm_service: php7.2-fpm
+_owncloud_fpm_service:
+  Fedora: php-fpm
+  OpenSUSE Leap: php7.2-fpm
+  OpenSUSE Tumbleweed: php7.2-fpm
+
+owncloud_fpm_service: "{{ _owncloud_fpm_service[ansible_distribution] | default(_owncloud_fpm_service['default']) }}"
 
 owncloud_command: php occ maintenance:install --database mysql --database-name {{ owncloud_database_name }} --database-user {{ owncloud_database_user }} --database-pass {{ owncloud_database_pass }} --database-host {{ owncloud_database_host }} --admin-user {{ owncloud_admin_user }} --admin-pass {{ owncloud_admin_pass }}
