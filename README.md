@@ -3,8 +3,7 @@ owncloud
 
 [![Build Status](https://travis-ci.org/robertdebock/ansible-role-owncloud.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-owncloud)
 
-Provides owncloud for your system.
-
+The purpose of this role is to install and configure owncloud on your system.
 
 Example Playbook
 ----------------

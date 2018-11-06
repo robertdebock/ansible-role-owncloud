@@ -1,1 +1,0 @@
-Provides owncloud for your system.
