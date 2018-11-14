@@ -18,16 +18,25 @@ _owncloud_requirements:
     - redis
   Alpine:
     - php7-apcu
+    - php7-ctype
     - php7-curl
+    - php7-dom
     - php7-fpm
     - php7-gd
+    - php7-iconv
     - php7-intl
     - php7-json
     - php7-ldap
     - php7-mbstring
     - php7-mysqlnd
+    - php7-mysqli
+    - php7-pdo
     - php7-posix
+    - php7-simplexml
+    - php7-xmlreader
+    - php7-xmlwriter
     - php7-xml
+    - php7-zip
     - redis
   Archlinux:
     - php-fpm
@@ -61,6 +70,7 @@ _owncloud_requirements:
     - php-mbstring
     - php-mysql
     - php-xml
+    - php-zip
     - redis-server
   Ubuntu:
     - php-apcu
@@ -73,6 +83,7 @@ _owncloud_requirements:
     - php-mbstring
     - php-mysql
     - php-xml
+    - php-zip
     - redis-server
   openSUSE Leap:
     - php-posix
@@ -80,8 +91,10 @@ _owncloud_requirements:
     - php7-fpm
     - php7-gd
     - php7-intl
+    - php7-json
     - php7-ldap
     - php7-mbstring
+    - php7-pdo
     - redis
   openSUSE Tumbleweed:
     - php7-posix
@@ -89,8 +102,10 @@ _owncloud_requirements:
     - php7-fpm
     - php7-gd
     - php7-intl
+    - php7-json
     - php7-ldap
     - php7-mbstring
+    - php7-pdo
     - redis
 
 owncloud_requirements: "{{ _owncloud_requirements[ansible_distribution] | default(_owncloud_requirements['default']) }}"
@@ -150,10 +165,57 @@ owncloud_permissions:
     group: root
     mode: 0640
 
+_owncloud_fpm_directory:
+  default: /etc
+  Alpine: /etc/php7
+  Debian: /etc/php/7.0/fpm
+  Fedora: /etc
+  openSUSE Leap: /etc/php7/fpm
+  openSUSE Tumbleweed: /etc/php7/fpm
+  Ubuntu: /etc/php/7.0/fpm
+
+owncloud_fpm_directory: "{{ _owncloud_fpm_directory[ansible_distribution] | default(_owncloud_fpm_directory['default']) }}"
+
+_owncloud_fpm_pid_directory:
+  default: /run/php-fpm
+  Alpine: /run/php-fpm7
+  Debian: /var/run/php
+  Fedora: /run/php-fpm
+  openSUSE Leap: /var/run
+  openSUSE Tumbleweed: /var/run
+  Ubuntu: /var/run/php
+
+owncloud_fpm_pid_directory: "{{ _owncloud_fpm_pid_directory[ansible_distribution] | default(_owncloud_fpm_pid_directory['default']) }}"
+
+_owncloud_fpm_user:
+  default: nobody
+  Debian: daemon
+  Ubuntu: daemon
+
+owncloud_fpm_user: "{{ _owncloud_fpm_user[ansible_distribution] | default(_owncloud_fpm_user['default']) }}"
+
+_owncloud_fpm_group:
+  default: nobody
+  Debian: daemon
+  Ubuntu: daemon
+
+owncloud_fpm_group: "{{ _owncloud_fpm_group[ansible_distribution] | default(_owncloud_fpm_group['default']) }}"
+
+_owncloud_fpm_include_directory:
+  default: "{{ owncloud_fpm_directory }}/php-fpm.d"
+  Debian: "{{ owncloud_fpm_directory }}/conf.d"
+  Ubuntu: "{{ owncloud_fpm_directory }}/conf.d"
+
+owncloud_fpm_include_directory: "{{ _owncloud_fpm_include_directory[ansible_distribution] | default(_owncloud_fpm_include_directory['default']) }}"
+
 _owncloud_fpm_service:
+  default: php-fpm
+  Alpine: php-fpm7
+  Debian: php7.0-fpm.service
   Fedora: php-fpm
-  OpenSUSE Leap: php7.2-fpm
-  OpenSUSE Tumbleweed: php7.2-fpm
+  openSUSE Leap: php-fpm
+  openSUSE Tumbleweed: php-fpm
+  Ubuntu: php7.0-fpm.service
 
 owncloud_fpm_service: "{{ _owncloud_fpm_service[ansible_distribution] | default(_owncloud_fpm_service['default']) }}"
 

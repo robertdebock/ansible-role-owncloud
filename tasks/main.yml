@@ -37,8 +37,6 @@
   args:
     creates: "{{ owncloud_destination }}/owncloud/config/config.php"
     chdir: "{{ owncloud_destination }}/owncloud"
-  become_user: "{{ owncloud_httpd_owner }}"
-  become: yes
   when:
     - ansible_virtualization_type != "docker"
   notify:
@@ -51,6 +49,18 @@
     mode: "{{ item.mode }}"
   with_items:
     - "{{ owncloud_permissions }}"
+
+- name: place php-fpm configuration
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  notify:
+    - restart php-fpm
+  with_items:
+    - src: php-fpm.conf.j2
+      dest: "{{ owncloud_fpm_directory }}/php-fpm.conf"
+    - src: www.conf.j2
+      dest: "{{ owncloud_fpm_include_directory }}/www.conf"
 
 - name: start php-fpm
   service:
