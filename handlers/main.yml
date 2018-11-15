@@ -5,11 +5,3 @@
     path: "{{ owncloud_destination }}/owncloud/config/config.php"
     regexp: "    0 => '"
     line: "    0 => '{{ owncloud_domain_url | default(ansible_default_ipv4.address) }}'"
-
-- name: restart php-fpm
-  service:
-    name: "{{ owncloud_fpm_service }}"
-    state: restarted
-    enabled: yes
-  when:
-    - ansible_virtualization_type != "docker"

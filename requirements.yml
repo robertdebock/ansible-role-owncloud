@@ -4,4 +4,6 @@
 - robertdebock.buildtools
 - robertdebock.python_pip
 - robertdebock.httpd
+- robertdebock.redis
+- robertdebock.php_fpm
 - robertdebock.php

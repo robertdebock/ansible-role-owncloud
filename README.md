@@ -23,6 +23,7 @@ This example is taken from `molecule/default/playbook.yml`:
     - robertdebock.python_pip
     - robertdebock.httpd
     - robertdebock.php
+    - robertdebock.php_fpm
     - robertdebock.owncloud
 
 ```
@@ -36,7 +37,7 @@ These variables are set in `defaults/main.yml`:
 # defaults file for owncloud
 
 # The version of owncloud to install.
-owncloud_version: 10.0.8
+owncloud_version: 10.0.10
 
 # The domain under which this server will be available. For example:
 # "localhost" or "owncloud.example.com". Does not include protocol identifier,
@@ -70,6 +71,7 @@ The following roles can be installed to ensure all requirements are met, using `
 - robertdebock.buildtools
 - robertdebock.python_pip
 - robertdebock.httpd
+- robertdebock.php_fpm
 - robertdebock.php
 
 
