@@ -38,6 +38,8 @@ platforms:
     image: ubuntu:artful
   - name: owncloud-ubuntu-devel
     image: ubuntu:devel
+  - name: owncloud-ubuntu-latest
+    image: ubuntu:latest
 provisioner:
   name: ansible
   lint:
