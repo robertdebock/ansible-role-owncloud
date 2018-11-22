@@ -38,7 +38,7 @@
     creates: "{{ owncloud_destination }}/owncloud/config/config.php"
     chdir: "{{ owncloud_destination }}/owncloud"
   when:
-    - ansible_virtualization_type != "docker"
+    - ansible_virtualization_type != "docker" or owncloud_ignore_docker
   notify:
     - set owncloud trusted domains
 
