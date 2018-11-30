@@ -16,8 +16,14 @@ provisioner:
     group_vars:
       all:
         owncloud_ignore_docker: no
+        httpd_ignore_docker: no
+        redis_ignore_docker: no
+        php_fpm_ignore_docker: no
   lint:
     name: ansible-lint
+  config_options:
+    defaults:
+      callback_plugins: /usr/lib/python2.7/site-packages/ara/plugins/callbacks
 scenario:
   name: ubuntu-latest
 verifier:
