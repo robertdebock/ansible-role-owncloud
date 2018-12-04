@@ -4,6 +4,9 @@
   package:
     name: "{{ owncloud_requirements }}"
     state: "{{ owncloud_package_state }}"
+  register: owncloud_install_requirements
+  until: owncloud_install_requirements
+  retries: 3
 
 - name: modify selinux settings
   seboolean:
