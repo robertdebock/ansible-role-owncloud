@@ -34,8 +34,10 @@ platforms:
     image: opensuse:leap
   - name: owncloud-opensuse-tumbleweed
     image: opensuse:tumbleweed
-  - name: owncloud-ubuntu-artful
-    image: ubuntu:artful
+  - name: owncloud-ubuntu-latest
+    image: ubuntu:latest
+  - name: owncloud-ubuntu-rolling
+    image: ubuntu:rolling
   - name: owncloud-ubuntu-devel
     image: ubuntu:devel
   - name: owncloud-ubuntu-latest
