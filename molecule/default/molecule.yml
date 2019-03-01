@@ -32,8 +32,6 @@ platforms:
     image: fedora:rawhide
   - name: owncloud-opensuse-leap
     image: opensuse:leap
-  - name: owncloud-opensuse-tumbleweed
-    image: opensuse:tumbleweed
   - name: owncloud-ubuntu-latest
     image: ubuntu:latest
   - name: owncloud-ubuntu-rolling
