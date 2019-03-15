@@ -3,7 +3,7 @@
 - name: install requirements
   package:
     name: "{{ owncloud_requirements }}"
-    state: "{{ owncloud_package_state }}"
+    state: present
   register: owncloud_install_requirements
   until: owncloud_install_requirements
   retries: 3
@@ -41,7 +41,7 @@
     creates: "{{ owncloud_destination }}/owncloud/config/config.php"
     chdir: "{{ owncloud_destination }}/owncloud"
   when:
-    - ansible_virtualization_type != "docker" or owncloud_ignore_docker
+    - ansible_virtualization_type != "docker"
   notify:
     - set owncloud trusted domains
 

@@ -26,7 +26,6 @@ This example is taken from `molecule/default/playbook.yml`:
     - robertdebock.php
     - robertdebock.php_fpm
     - robertdebock.owncloud
-
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -54,15 +53,6 @@ owncloud_database_pass: 0wnCl0uD
 owncloud_database_host: localhost
 owncloud_admin_user: admin
 owncloud_admin_pass: OwnCl0uD
-
-# To update all packages installed by this roles, set `owncloud_package_state` to `latest`.
-owncloud_package_state: present
-
-# Some Docker containers do not allow managing services, rebooting and writing
-# to some locations in /etc. The role skips tasks that will typically fail in
-# Docker. With this parameter you can tell the role to -not- skip these tasks.
-owncloud_ignore_docker: yes
-
 ```
 
 Requirements
