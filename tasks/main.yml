@@ -52,3 +52,5 @@
     mode: "{{ item.mode }}"
   with_items:
     - "{{ owncloud_permissions }}"
+  loop_control:
+    label: "{{ item.name }}"
