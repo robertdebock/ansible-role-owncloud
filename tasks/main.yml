@@ -5,7 +5,7 @@
     name: "{{ owncloud_requirements }}"
     state: present
   register: owncloud_install_requirements
-  until: owncloud_install_requirements
+  until: owncloud_install_requirements is succeeded
   retries: 3
 
 - name: modify selinux settings
