@@ -11,5 +11,8 @@
     - robertdebock.python_pip
     - robertdebock.httpd
     - robertdebock.redis
+    - robertdebock.remi
+      remi_enabled_repositories:
+        - php73
     - robertdebock.php
     - robertdebock.php_fpm
