@@ -27,6 +27,9 @@
     owner: "{{ owncloud_httpd_owner }}"
     group: "{{ owncloud_httpd_group }}"
     creates: "{{ owncloud_destination }}/owncloud"
+  register: owncloud_install_owncloud
+  until: owncloud_install_owncloud is succeeded
+  retries: 3
 
 - name: place owncloud.conf
   template:
