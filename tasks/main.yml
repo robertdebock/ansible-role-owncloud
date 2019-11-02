@@ -43,8 +43,6 @@
   args:
     creates: "{{ owncloud_destination }}/owncloud/config/config.php"
     chdir: "{{ owncloud_destination }}/owncloud"
-  when:
-    - ansible_virtualization_type != "docker"
   notify:
     - set owncloud trusted domains
 
