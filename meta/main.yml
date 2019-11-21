@@ -40,7 +40,6 @@ galaxy_info:
     - owncloud
     - centos
     - rhel
-    - ubuntu
 
 dependencies:
   - robertdebock.httpd
