@@ -141,7 +141,6 @@ Some variarations of the build matrix do not work. These are the variations and 
 | CentOS latest | No package php73 available. |
 
 
-
 Testing
 -------
 
