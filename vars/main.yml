@@ -36,12 +36,6 @@ _owncloud_requirements:
     - php7-xmlwriter
     - php7-xml
     - php7-zip
-  Archlinux:
-    - php-fpm
-    - php-apcu
-    - php-gd
-    - php-intl
-    - php-ldap
   CentOS:
     - php-curl
     - php-fpm
@@ -109,14 +103,12 @@ owncloud_archive: "https://download.owncloud.org/community/owncloud-{{ owncloud_
 _owncloud_destination:
   default: /var/www/html
   Alpine: /var/www
-  Archlinux: /srv/http
   openSUSE Leap: /srv/www/htdocs
 
 owncloud_destination: "{{ _owncloud_destination[ansible_distribution] | default(_owncloud_destination['default']) }}"
 
 _owncloud_httpd_owner:
   default: apache
-  Archlinux: root
   Debian: www-data
   Ubuntu: www-data
   openSUSE Leap: wwwrun
@@ -125,7 +117,6 @@ owncloud_httpd_owner: "{{ _owncloud_httpd_owner[ansible_distribution] | default(
 
 _owncloud_httpd_group:
   default: apache
-  Archlinux: root
   Debian: www-data
   Ubuntu: www-data
   openSUSE Leap: www
@@ -135,7 +126,6 @@ owncloud_httpd_group: "{{ _owncloud_httpd_group[ansible_distribution] | default(
 _owncloud_config_directory:
   default: /etc/httpd/conf.d
   Alpine: /etc/apache2/conf.d
-  Archlinux: /etc/httpd/conf/extra
   CentOS: /etc/httpd/conf.d
   Debian: /etc/apache2/conf-enabled
   Ubuntu: /etc/apache2/conf-enabled
