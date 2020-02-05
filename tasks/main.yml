@@ -16,8 +16,7 @@
   when:
     - ansible_selinux.status is defined
     - ansible_selinux.status == "enabled"
-  with_items:
-    - "{{ owncloud_sebooleans }}"
+  loop: "{{ owncloud_sebooleans }}"
 
 - name: install owncloud
   unarchive:
@@ -51,7 +50,6 @@
     name: "{{ item.name }}"
     group: "{{ item.group }}"
     mode: "{{ item.mode }}"
-  with_items:
-    - "{{ owncloud_permissions }}"
+  loop: "{{ owncloud_permissions }}"
   loop_control:
     label: "{{ item.name }}"
