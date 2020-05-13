@@ -12,4 +12,5 @@ galaxy_info:
     - owncloud
     - centos
 
-dependencies:   - robertdebock.httpd
+dependencies:
+  - robertdebock.httpd
