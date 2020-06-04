@@ -44,6 +44,7 @@
     chdir: "{{ owncloud_destination }}/owncloud"
   notify:
     - set owncloud trusted domains
+  no_log: true
 
 - name: set permissions
   file:
