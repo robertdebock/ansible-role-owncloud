@@ -1,5 +1,6 @@
 ---
 # vars file for owncloud
+
 _owncloud_requirements:
   default:
     - php-curl
