@@ -45,11 +45,12 @@ _owncloud_requirements:
     - php-json
     - php-ldap
     - php-mbstring
-    - php-mysql
+    - php-mysqlnd
     - php-pecl-apcu
     - php-pecl-redis
     - php-process
     - php-xml
+    - php-zip
   Debian:
     - php-apcu
     - php-common
