@@ -10,9 +10,6 @@ galaxy_info:
     - name: Fedora
       versions:
         - 31
-    - name: OpenSUSE
-      versions:
-        - all
 
   galaxy_tags:
     - owncloud
