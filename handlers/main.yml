@@ -5,3 +5,8 @@
     path: "{{ owncloud_destination }}/owncloud/config/config.php"
     regexp: "    0 => '"
     line: "    0 => '{{ owncloud_domain_url | default(ansible_default_ipv4.address) }}'"
+
+- name: remove config.php
+  file:
+    path: "{{ owncloud_destination }}/owncloud/config/config.php"
+    state: absent

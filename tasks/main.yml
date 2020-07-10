@@ -32,6 +32,11 @@
   register: owncloud_install_owncloud
   until: owncloud_install_owncloud is succeeded
   retries: 3
+  notify:
+    - remove config.php
+
+- name: flush handlers
+  meta: flush_handlers
 
 - name: place owncloud.conf
   template:
@@ -48,6 +53,8 @@
   notify:
     - set owncloud trusted domains
   no_log: yes
+  become: yes
+  become_user: "{{ owncloud_httpd_owner }}"
 
 - name: set permissions
   file:

@@ -5,5 +5,8 @@
   gather_facts: yes
 
   tasks:
-    - name: check if connection still works
-      ping:
+    - name: get status.php
+      uri:
+        url: "https://{{ ansible_default_ipv4.address }}/owncloud/status.php"
+        validate_certs: no
+      delegate_to: localhost
