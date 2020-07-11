@@ -66,8 +66,14 @@ For verification `molecule/resources/verify.yml` run after the role has been app
   gather_facts: yes
 
   tasks:
-    - name: check if connection still works
-      ping:
+    - name: get status.php
+      uri:
+        url: "https://{{ ansible_default_ipv4.address }}/owncloud/status.php"
+        validate_certs: no
+      delegate_to: localhost
+      register: owncloud_get_status_php
+      until: owncloud_get_status_php is succeeded
+      retries: 3
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
