@@ -47,7 +47,8 @@ _owncloud_requirements:
     - php-mbstring
     - php-mysqlnd
     - php-pecl-apcu
-    - php-pecl-redis
+    # Does not exist for CentOS 8.
+    # - php-pecl-redis
     - php-process
     - php-xml
     - php-zip
