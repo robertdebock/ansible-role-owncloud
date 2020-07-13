@@ -97,7 +97,7 @@ owncloud_domain_url: "{{ ansible_fqdn }}"
 owncloud_database_name: owncloud
 owncloud_database_user: owncloud
 owncloud_database_pass: 0wnCl0uD
-owncloud_database_host: localhost
+owncloud_database_host: 127.0.0.1
 owncloud_admin_user: admin
 owncloud_admin_pass: OwnCl0uD
 ```
@@ -145,6 +145,7 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 |container|tags|
 |---------|----|
 |fedora|31|
+|opensuse|all|
 
 The minimum version of Ansible required is 2.8 but tests have been done to:
 

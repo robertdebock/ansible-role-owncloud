@@ -15,6 +15,7 @@ env:
     namespace="robertdebock"
   matrix:
     - image="fedora" tag="31"
+    - image="opensuse" tag="latest"
 
 cache:
   - pip

@@ -35,6 +35,8 @@ jobs:
         config:
           - image: "fedora"
             tag: "31"
+          - image: "opensuse"
+            tag: "latest"
     steps:
       - name: checkout
         uses: actions/checkout@v2
