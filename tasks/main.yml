@@ -59,8 +59,8 @@
 - name: set permissions
   file:
     name: "{{ item.name }}"
-    group: "{{ item.group }}"
-    mode: "{{ item.mode }}"
+    group: "{{ item.group | default(omit) }}"
+    mode: "{{ item.mode | default(omit) }}"
   loop: "{{ owncloud_permissions }}"
   loop_control:
     label: "{{ item.name }}"
