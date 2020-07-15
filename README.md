@@ -68,7 +68,7 @@ For verification `molecule/resources/verify.yml` run after the role has been app
   tasks:
     - name: get status.php
       uri:
-        url: "https://{{ ansible_default_ipv4.address }}/owncloud/status.php"
+        url: "https://{{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}/owncloud/status.php"
         validate_certs: no
       delegate_to: localhost
       register: owncloud_get_status_php
