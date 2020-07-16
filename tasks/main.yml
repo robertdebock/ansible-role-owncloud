@@ -7,9 +7,6 @@
   package:
     name: "{{ owncloud_requirements }}"
     state: present
-  register: owncloud_install_requirements
-  until: owncloud_install_requirements is succeeded
-  retries: 3
 
 - name: modify selinux settings
   seboolean:
@@ -29,9 +26,6 @@
     owner: "{{ owncloud_httpd_owner }}"
     group: "{{ owncloud_httpd_group }}"
     creates: "{{ owncloud_destination }}/owncloud"
-  register: owncloud_install_owncloud
-  until: owncloud_install_owncloud is succeeded
-  retries: 3
   notify:
     - remove config.php
 
