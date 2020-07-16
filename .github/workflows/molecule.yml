@@ -33,10 +33,16 @@ jobs:
       fail-fast: false
       matrix:
         config:
+          - image: "centos"
+            tag: "latest"
+          - image: "debian"
+            tag: "latest"
           - image: "fedora"
             tag: "31"
           - image: "opensuse"
             tag: "latest"
+          - image: "ubuntu"
+            tag: "bionic"
     steps:
       - name: checkout
         uses: actions/checkout@v2
