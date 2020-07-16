@@ -71,9 +71,6 @@ For verification `molecule/resources/verify.yml` run after the role has been app
         url: "https://{{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}/owncloud/status.php"
         validate_certs: no
       delegate_to: localhost
-      register: owncloud_get_status_php
-      until: owncloud_get_status_php is succeeded
-      retries: 3
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
