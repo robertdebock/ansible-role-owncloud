@@ -1,4 +1,6 @@
 ---
 exceptions:
-  - variation: CentOS latest
+  - variation: centos:latest
     reason: "No package php73 available."
+  - variation: opensuse
+    reason: "This version of ownCloud is not compatible with PHP 7.4"

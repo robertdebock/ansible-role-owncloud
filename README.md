@@ -144,7 +144,6 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 |el|8|
 |debian|buster|
 |fedora|31|
-|opensuse|all|
 |ubuntu|bionic|
 
 The minimum version of Ansible required is 2.8 but tests have been done to:
@@ -159,7 +158,8 @@ Some variarations of the build matrix do not work. These are the variations and 
 
 | variation                 | reason                 |
 |---------------------------|------------------------|
-| CentOS latest | No package php73 available. |
+| centos:latest | No package php73 available. |
+| opensuse | This version of ownCloud is not compatible with PHP 7.4 |
 
 
 ## [Testing](#testing)
