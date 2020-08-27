@@ -5,6 +5,7 @@
     path: "{{ owncloud_destination }}/owncloud/config/config.php"
     regexp: "    0 => '"
     line: "    0 => '{{ owncloud_domain_url }}'"
+    mode: "0644"
 
 - name: remove config.php
   file:
