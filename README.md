@@ -48,9 +48,9 @@ The machine may need to be prepared using `molecule/resources/prepare.yml`:
     - role: robertdebock.php_fpm
     - role: robertdebock.mysql
       mysql_databases:
-         - name: owncloud
-           encoding: utf8
-           collation: utf8_bin
+        - name: owncloud
+          encoding: utf8
+          collation: utf8_bin
       mysql_users:
         - name: owncloud
           password: 0wnCl0uD
