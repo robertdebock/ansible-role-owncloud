@@ -126,7 +126,7 @@ owncloud_packages:
 owncloud_permissions:
   - name: "{{ owncloud_destination }}/owncloud/.htaccess"
     group: root
-    mode: "755"
+    mode: "0755"
   - name: "{{ owncloud_destination }}/owncloud/data"
     mode: "0775"
   - name: "{{ owncloud_destination }}/owncloud/config/config.php"
