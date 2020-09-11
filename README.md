@@ -39,6 +39,7 @@ The machine may need to be prepared using `molecule/resources/prepare.yml`:
       openssl_items:
         - name: apache-httpd
           common_name: "{{ ansible_fqdn }}"
+    - role: robertdebock.selinux
     - role: robertdebock.httpd
     - role: robertdebock.redis
     - role: robertdebock.remi
@@ -57,13 +58,13 @@ The machine may need to be prepared using `molecule/resources/prepare.yml`:
           priv: "owncloud.*:ALL"
 ```
 
-For verification `molecule/resources/verify.yml` run after the role has been applied.
+For verification `molecule/resources/verify.yml` runs after the role has been applied.
 ```yaml
 ---
 - name: Verify
   hosts: all
   become: yes
-  gather_facts: yes
+  gather_facts: no
 
   tasks:
     - name: get status.php
@@ -120,6 +121,7 @@ The following roles can be installed to ensure all requirements are met, using `
 - robertdebock.python_pip
 - robertdebock.redis
 - robertdebock.remi
+- robertdebock.selinux
 
 ```
 
