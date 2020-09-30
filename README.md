@@ -45,6 +45,8 @@ The machine may need to be prepared using `molecule/resources/prepare.yml`:
     - role: robertdebock.remi
       remi_enabled_repositories:
         - php73
+      when:
+        - ansible_distribution != "Fedora"
     - role: robertdebock.php
     - role: robertdebock.php_fpm
     - role: robertdebock.mysql
