@@ -1,5 +1,6 @@
 ---
 # handlers file for owncloud
+
 - name: set owncloud trusted domains
   lineinfile:
     path: "{{ owncloud_destination }}/owncloud/config/config.php"
