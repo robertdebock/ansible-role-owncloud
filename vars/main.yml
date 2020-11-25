@@ -130,6 +130,6 @@ owncloud_permissions:
   - name: "{{ owncloud_destination }}/owncloud/data"
     mode: "0775"
   - name: "{{ owncloud_destination }}/owncloud/config/config.php"
-    mode: "0775"
+    mode: "0644"
 
 owncloud_command: php occ maintenance:install --database "mysql" --database-name "{{ owncloud_database_name }}" --database-user "{{ owncloud_database_user }}" --database-pass "{{ owncloud_database_pass }}" --database-host "{{ owncloud_database_host }}" --admin-user "{{ owncloud_admin_user }}" --admin-pass "{{ owncloud_admin_pass }}"
