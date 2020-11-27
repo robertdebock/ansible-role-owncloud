@@ -132,7 +132,7 @@ owncloud_permissions:
     mode: "0770"
     group: "{{ owncloud_httpd_group }}"
   - name: "{{ owncloud_destination }}/owncloud/config/config.php"
-    mode: "0644"
+    mode: "0664"
     group: "{{ owncloud_httpd_group }}"
   - name: "{{ owncloud_destination }}/owncloud/config"
     mode: "0770"
