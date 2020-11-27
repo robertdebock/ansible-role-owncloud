@@ -19,9 +19,7 @@ env:
   jobs:
     - image="centos" tag="latest"
     - image="debian" tag="latest"
-    - image="fedora" tag="32"
     - image="fedora" tag="latest"
-    - image="fedora" tag="rawhide"
     - image="opensuse" tag="latest"
     - image="ubuntu" tag="bionic"
 

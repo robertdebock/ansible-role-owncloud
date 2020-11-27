@@ -129,7 +129,7 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 |---------|----|
 |el|8|
 |debian|buster|
-|fedora|all|
+|fedora|33|
 |opensuse|all|
 |ubuntu|bionic|
 
@@ -147,6 +147,7 @@ Some variarations of the build matrix do not work. These are the variations and 
 |---------------------------|------------------------|
 | centos:latest | No package php73 available. |
 | opensuse | This version of ownCloud is not compatible with PHP 7.4 |
+| fedora:32 | nothing provides libzip(x86-64) >= 1.7.3 needed by php-pecl-zip-1.19.1-1.fc32.remi.7.4.x86_64 |
 
 
 ## [Testing](#testing)
