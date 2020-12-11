@@ -2,9 +2,9 @@
 
 Install and configure owncloud on your system.
 
-|Travis|GitHub|Quality|Downloads|Version|
-|------|------|-------|---------|-------|
-|[![travis](https://travis-ci.com/robertdebock/ansible-role-owncloud.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-owncloud)|[![github](https://github.com/robertdebock/ansible-role-owncloud/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-owncloud/actions)|[![quality](https://img.shields.io/ansible/quality/27060)](https://galaxy.ansible.com/robertdebock/owncloud)|[![downloads](https://img.shields.io/ansible/role/d/27060)](https://galaxy.ansible.com/robertdebock/owncloud)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-owncloud.svg)](https://github.com/robertdebock/ansible-role-owncloud/releases/)|
+|Travis|GitHub|GitLab|Quality|Downloads|Version|
+|------|------|------|-------|---------|-------|
+|[![travis](https://travis-ci.com/robertdebock/ansible-role-owncloud.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-owncloud)|[![github](https://github.com/robertdebock/ansible-role-owncloud/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-owncloud/actions)|[![gitlab](https://gitlab.com/robertdebock/ansible-role-owncloud/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-owncloud)|[![quality](https://img.shields.io/ansible/quality/27060)](https://galaxy.ansible.com/robertdebock/owncloud)|[![downloads](https://img.shields.io/ansible/role/d/27060)](https://galaxy.ansible.com/robertdebock/owncloud)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-owncloud.svg)](https://github.com/robertdebock/ansible-role-owncloud/releases/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -88,10 +88,11 @@ owncloud_admin_pass: OwnCl0uD
 
 ## [Requirements](#requirements)
 
-- Access to a repository containing packages, likely on the internet.
-- A recent version of Ansible. (Tests run on the current, previous and next release of Ansible.)
+- pip packages listed in [requirements.txt](https://github.com/robertdebock/ansible-role-owncloud/blob/master/requirements.txt).
 
 ## [Status of requirements](#status-of-requirements)
+
+The following roles are used to prepare a system. You may choose to prepare your system in another way, I have tested these roles as well.
 
 | Requirement | Travis | GitHub |
 |-------------|--------|--------|
