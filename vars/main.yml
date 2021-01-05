@@ -120,9 +120,6 @@ _owncloud_config_directory:
 
 owncloud_config_directory: "{{ _owncloud_config_directory[ansible_os_family] | default(_owncloud_config_directory['default']) }}"
 
-owncloud_packages:
-  - owncloud-files
-
 owncloud_permissions:
   - name: "{{ owncloud_destination }}/owncloud/.htaccess"
     owner: root
