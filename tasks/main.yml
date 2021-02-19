@@ -7,12 +7,12 @@
   delegate_to: localhost
 
 - name: install requirements
-  package:
+  ansible.builtin.package:
     name: "{{ owncloud_requirements }}"
     state: present
 
 - name: modify selinux settings
-  seboolean:
+  ansible.posix.seboolean:
     name: "{{ item }}"
     state: yes
     persistent: yes
@@ -22,7 +22,7 @@
   loop: "{{ owncloud_sebooleans }}"
 
 - name: install owncloud
-  unarchive:
+  ansible.builtin.unarchive:
     src: "{{ owncloud_archive }}"
     dest: "{{ owncloud_destination }}"
     remote_src: yes
@@ -34,10 +34,10 @@
     - remove config.php
 
 - name: flush handlers
-  meta: flush_handlers
+  ansible.builtin.meta: flush_handlers
 
 - name: place owncloud.conf
-  template:
+  ansible.builtin.template:
     src: owncloud.conf.j2
     dest: "{{ owncloud_config_directory }}/owncloud.conf"
     mode: "0644"
@@ -56,7 +56,7 @@
   become_user: "{{ owncloud_httpd_owner }}"
 
 - name: set permissions
-  file:
+  ansible.builtin.file:
     name: "{{ item.name }}"
     owner: "{{ item.owner | default(omit) }}"
     group: "{{ item.group | default(omit) }}"
