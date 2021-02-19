@@ -14,5 +14,4 @@ roles:
   - name: robertdebock.remi
   - name: robertdebock.selinux
 collections:
-  - name: ansible.builtin
   - name: ansible.posix
