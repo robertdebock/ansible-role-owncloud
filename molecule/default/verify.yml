@@ -13,4 +13,4 @@
       register: owncloud_get_status_php
       until:
         - owncloud_get_status_php is succeeded
-      retries: 10
+      retries: 30
