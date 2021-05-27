@@ -9,7 +9,8 @@
 
   tasks:
     - name: occ check
-      command: php occ check
+      ansible.builtin.command:
+        cmd: php occ check
       args:
         chdir: "{{ owncloud_destination }}/owncloud"
       changed_when: no
