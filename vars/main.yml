@@ -37,19 +37,6 @@ _owncloud_requirements:
     - php7-xmlwriter
     - php7-xml
     - php7-zip
-  RedHat:
-    - php-curl
-    - php-fpm
-    - php-gd
-    - php-intl
-    - php-json
-    - php-ldap
-    - php-mbstring
-    - php-mysqlnd
-    - php-pecl-apcu
-    - php-process
-    - php-xml
-    - php-zip
   Debian:
     - php-apcu
     - php-common
@@ -62,6 +49,20 @@ _owncloud_requirements:
     - php-mysql
     - php-xml
     - php-zip
+  RedHat: &RHEL
+    - php-curl
+    - php-fpm
+    - php-gd
+    - php-intl
+    - php-json
+    - php-ldap
+    - php-mbstring
+    - php-mysqlnd
+    - php-pecl-apcu
+    - php-process
+    - php-xml
+    - php-zip
+  Rocky: *RHEL
   Suse:
     - php-posix
     - php7-ctype
