@@ -1,0 +1,35 @@
+digraph PhiloDilemma {
+  label = "Robert de Bock" ;
+  overlap=false
+  {
+    "owncloud" [fillcolor=yellow style=filled penwidth=3]
+    "robertdebock.bootstrap" [fillcolor=green style=filled]
+    "robertdebock.buildtools" [fillcolor=green style=filled]
+    "robertdebock.core_dependencies" [fillcolor=green style=filled]
+    "robertdebock.cron" [fillcolor=green style=filled]
+    "robertdebock.epel" [fillcolor=green style=filled]
+    "robertdebock.httpd" [fillcolor=green style=filled]
+    "robertdebock.mysql" [fillcolor=green style=filled]
+    "robertdebock.openssl" [fillcolor=green style=filled]
+    "robertdebock.php" [fillcolor=green style=filled]
+    "robertdebock.php_fpm" [fillcolor=green style=filled]
+    "robertdebock.python_pip" [fillcolor=green style=filled]
+    "robertdebock.redis" [fillcolor=green style=filled]
+    "robertdebock.remi" [fillcolor=green style=filled]
+    "robertdebock.selinux" [fillcolor=green style=filled]
+  }
+  "owncloud" -> "robertdebock.bootstrap"
+  "owncloud" -> "robertdebock.buildtools"
+  "owncloud" -> "robertdebock.core_dependencies"
+  "owncloud" -> "robertdebock.cron"
+  "owncloud" -> "robertdebock.epel"
+  "owncloud" -> "robertdebock.httpd"
+  "owncloud" -> "robertdebock.mysql"
+  "owncloud" -> "robertdebock.openssl"
+  "owncloud" -> "robertdebock.php"
+  "owncloud" -> "robertdebock.php_fpm"
+  "owncloud" -> "robertdebock.python_pip"
+  "owncloud" -> "robertdebock.redis"
+  "owncloud" -> "robertdebock.remi"
+  "owncloud" -> "robertdebock.selinux"
+}
