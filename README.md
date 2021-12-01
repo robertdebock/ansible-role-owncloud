@@ -71,18 +71,18 @@ The default values for the variables are set in `defaults/main.yml`:
 # defaults file for owncloud
 
 # The version of owncloud to install.
-owncloud_version: 10.5.0
+owncloud_version: "10.8.0"
 
 # The domain under which this server will be available. For example:
 # "localhost" or "owncloud.example.com". Does not include protocol identifier,
 # (https://) or directories. (/owncloud)
-owncloud_domain_url: "{{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0] ) }}"
+owncloud_domain_url: "{{ ansible_default_ipv4.address | default(ansible_all_ipv4_addresses[0] ) }}"
 
 # Database connection details.
 owncloud_database_name: owncloud
 owncloud_database_user: owncloud
 owncloud_database_pass: 0wnCl0uD
-owncloud_database_host: 127.0.0.1
+owncloud_database_host: "127.0.0.1"
 owncloud_admin_user: admin
 owncloud_admin_pass: OwnCl0uD
 ```
@@ -112,11 +112,6 @@ The following roles are used to prepare a system. You can prepare your system in
 |[robertdebock.remi](https://galaxy.ansible.com/robertdebock/remi)|[![Build Status GitHub](https://github.com/robertdebock/ansible-role-remi/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-remi/actions)|[![Build Status GitLab ](https://gitlab.com/robertdebock/ansible-role-remi/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-remi)|
 |[robertdebock.selinux](https://galaxy.ansible.com/robertdebock/selinux)|[![Build Status GitHub](https://github.com/robertdebock/ansible-role-selinux/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-selinux/actions)|[![Build Status GitLab ](https://gitlab.com/robertdebock/ansible-role-selinux/badges/master/pipeline.svg)](https://gitlab.com/robertdebock/ansible-role-selinux)|
 
-## [Dependencies](#dependencies)
-
-Most roles require some kind of preparation, this is done in `molecule/default/prepare.yml`. This role has a "hard" dependency on the following roles:
-
-- robertdebock.httpd
 ## [Context](#context)
 
 This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://robertdebock.nl/) for further information.
@@ -132,7 +127,7 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 |---------|----|
 |el|8|
 |debian|bullseye|
-|fedora|33|
+|fedora|all|
 |opensuse|all|
 |ubuntu|bionic|
 
