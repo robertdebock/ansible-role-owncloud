@@ -32,7 +32,6 @@
     mode: "0755"
   notify:
     - Remove config.php
-    - Set permission
 
 - name: Flush handlers
   ansible.builtin.meta: flush_handlers
@@ -51,6 +50,7 @@
   notify:
     - Set owncloud trusted domains
     - Restart httpd
+    - Set permission
   no_log: yes
   become: yes
   become_user: "{{ owncloud_httpd_owner }}"
