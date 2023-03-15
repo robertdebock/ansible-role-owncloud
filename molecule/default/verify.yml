@@ -8,7 +8,7 @@
     ../../vars/main.yml
 
   tasks:
-    - name: occ check
+    - name: Run occ check
       ansible.builtin.command:
         cmd: php occ check
       args:
@@ -17,11 +17,9 @@
       become: yes
       become_user: "{{ owncloud_httpd_owner }}"
 
-    - name: get status.php
+    - name: Get status.php
       ansible.builtin.uri:
         url: "http://{{ ansible_default_ipv4.address | default(ansible_all_ipv4_addresses[0]) }}/owncloud/status.php"
-        # url: "http://localhost/owncloud/status.php"
-      delegate_to: localhost
       register: owncloud_get_status_php
       until:
         - owncloud_get_status_php is succeeded
