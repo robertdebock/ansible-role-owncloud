@@ -74,7 +74,7 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 # defaults file for owncloud
 
 # The version of owncloud to install.
-owncloud_version: "10.8.0"
+owncloud_version: "10.11.0"
 
 # The domain under which this server will be available. For example:
 # "localhost" or "owncloud.example.com". Does not include protocol identifier,
