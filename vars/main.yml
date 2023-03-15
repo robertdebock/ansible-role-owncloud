@@ -87,7 +87,7 @@ owncloud_sebooleans:
   - httpd_tmp_exec
   - httpd_unified
 
-owncloud_archive: "https://download.owncloud.org/community/owncloud-{{ owncloud_version }}.zip"
+owncloud_archive: "https://download.owncloud.com/server/owncloud-{{ owncloud_version }}.zip"
 
 _owncloud_destination:
   default: /var/www/html
