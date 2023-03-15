@@ -31,10 +31,6 @@ jobs:
         config:
           - image: "debian"
             tag: "latest"
-          - image: "enterpriselinux"
-            tag: "8"
-          - image: "debian"
-            tag: "latest"
           - image: "opensuse"
             tag: "latest"
           - image: "ubuntu"
