@@ -29,6 +29,10 @@ jobs:
       fail-fast: false
       matrix:
         config:
+          - image: "debian"
+            tag: "latest"
+          - image: "debian"
+            tag: "bookworm"
           - image: "enterpriselinux"
             tag: "8"
           - image: "debian"
@@ -36,7 +40,9 @@ jobs:
           - image: "opensuse"
             tag: "latest"
           - image: "ubuntu"
-            tag: "bionic"
+            tag: "latest"
+          - image: "ubuntu"
+            tag: "focal"
     steps:
       - name: checkout
         uses: actions/checkout@v3

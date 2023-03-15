@@ -12,6 +12,10 @@ molecule:
     - if: $CI_COMMIT_REF_NAME == "master"
   parallel:
     matrix:
+      - image: "debian"
+        tag: "latest"
+      - image: "debian"
+        tag: "bookworm"
       - image: "enterpriselinux"
         tag: "8"
       - image: "debian"
@@ -19,7 +23,9 @@ molecule:
       - image: "opensuse"
         tag: "latest"
       - image: "ubuntu"
-        tag: "bionic"
+        tag: "latest"
+      - image: "ubuntu"
+        tag: "focal"
 
 galaxy:
   script:
