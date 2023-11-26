@@ -1,4 +1,4 @@
-# Ansible role [owncloud](#owncloud)
+# [Ansible role owncloud](#owncloud)
 
 Install and configure owncloud on your system.
 
