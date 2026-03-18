@@ -40,7 +40,7 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
     - role: robertdebock.openssl
       openssl_items:
         - name: apache-httpd
-          common_name: "{{ ansible_fqdn }}"
+          common_name: "{{ ansible_facts['fqdn'] }}"
     - role: robertdebock.selinux
     - role: robertdebock.httpd
     - role: robertdebock.redis
@@ -48,7 +48,7 @@ The machine needs to be prepared. In CI this is done using [`molecule/default/pr
       remi_enabled_repositories:
         - php73
       when:
-        - ansible_distribution != "Fedora"
+        - ansible_facts['distribution'] != "Fedora"
     - role: robertdebock.php
     - role: robertdebock.php_fpm
     - role: robertdebock.mysql
@@ -78,7 +78,7 @@ owncloud_version: "10.11.0"
 # The domain under which this server will be available. For example:
 # "localhost" or "owncloud.example.com". Does not include protocol identifier,
 # (https://) or directories. (/owncloud)
-owncloud_domain_url: "{{ ansible_default_ipv4.address | default(ansible_all_ipv4_addresses[0]) }}"
+owncloud_domain_url: "{{ ansible_facts['default_ipv4'].address | default(ansible_facts['all_ipv4_addresses'][0]) }}"
 
 # Database connection details.
 owncloud_database_name: owncloud
